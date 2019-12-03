@@ -14,7 +14,7 @@ export class HomeService {
     var addloan = document.getElementById("loanadd")["value"];
     var addquantity = document.getElementById("quantityadd")["value"];
 
-    this.http.post('http://54.89.90.204:8080/products/create', {name: addname,type:addtype, loan:addloan, quantity:addquantity}).subscribe(data => {
+    this.http.post('http://localhost:8080/products/create', {name: addname,type:addtype, loan:addloan, quantity:addquantity}).subscribe(data => {
     console.log(data);
 
     
@@ -24,7 +24,7 @@ export class HomeService {
 
   getInfo(){
       
-      this.http.get('http://54.89.90.204:8080/products/read').subscribe(data => {
+      this.http.get('http://localhost:8080/products/read').subscribe(data => {
         
       console.log(data);
 
@@ -80,7 +80,7 @@ export class HomeService {
     var addquantity = document.getElementById("quantityadd")["value"];
     
     var searchid = document.getElementById("idsearch")["value"];
-    this.http.put("http://54.89.90.204:8080/products/" + searchid +"/update", {name: addname,type:addtype, loan:addloan, quantity:addquantity}).subscribe(data => {
+    this.http.put("http://localhost:8080/products/" + searchid +"/update", {name: addname,type:addtype, loan:addloan, quantity:addquantity}).subscribe(data => {
     console.log(data);
 
     
@@ -91,7 +91,7 @@ export class HomeService {
   deleteInfo(){
 
     var deleteid = document.getElementById("idsearch")["value"];
-    this.http.delete("http://54.89.90.204:8080/products/" + deleteid +"/delete").subscribe(data => {
+    this.http.delete("http://localhost:8080/products/" + deleteid +"/delete").subscribe(data => {
     console.log(data);
 
     

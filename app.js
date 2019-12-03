@@ -11,7 +11,7 @@ app.use('/', express.static('./'));
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-let dev_db_url = 'mongodb+srv://allen:<allen666666>@cluster0-txdt3.mongodb.net/test?retryWrites=true&w=majority';
+let dev_db_url = 'mongodb+srv://allen:allen666666@cluster0-txdt3.mongodb.net/test?retryWrites=true&w=majority';
 
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
