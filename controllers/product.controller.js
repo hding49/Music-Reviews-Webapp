@@ -8,10 +8,10 @@ exports.test = function (req, res) {
 exports.product_create = function (req, res) {
     var product = new Product(
         {
-            name: req.body.name,
-            type: req.body.type,
-            loan: req.body.loan,
-            quantity:req.body.quantity,
+            username: req.body.username,
+            password: req.body.password,
+            //loan: req.body.loan,
+            //quantity:req.body.quantity,
         }
     );
 
