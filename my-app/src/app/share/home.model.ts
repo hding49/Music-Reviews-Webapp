@@ -1,4 +1,4 @@
 export class Home {
-    username: string; 
+    email: string; 
     password: string;
 }

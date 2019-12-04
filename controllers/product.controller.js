@@ -10,7 +10,7 @@ exports.test = function (req, res) {
 exports.product_create = function (req, res) {
     var product = new Product(
         {
-            username: req.body.username,
+            email: req.body.email,
             password: req.body.password,
             //loan: req.body.loan,
             //quantity:req.body.quantity,
@@ -57,7 +57,7 @@ const User = mongoose.model('Product');
 //module.exports.register = (req, res, next) =>
 module.exports.register = (req, res, next) => {
     var user = new User();
-    user.username = req.body.username;
+    user.email = req.body.email;
     user.password = req.body.password;
     user.save((err, doc) => {
         if (!err)

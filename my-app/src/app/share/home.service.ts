@@ -9,7 +9,7 @@ import { Product } from '../../../../models/product.model';
 })
 export class HomeService {
   selectedUser: Product = {
-    username: '',
+    email: '',
     password: ''
   };
   constructor(private http: HttpClient) { }
