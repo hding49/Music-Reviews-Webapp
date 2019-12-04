@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>ECE 9065 - Lab 3</title>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<header>
-    <div class = "container">
-      <a href="#" class = "logo">Music App</a>
-      <nav>
-          <ul>
-              <li><a href="#" routerLink ="/">Home</a></li>
-              <li><a href="#" routerLink ="/list"></a></li>
-          </ul>
-      </nav>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h2 class="inactive underlineHover">Sign Up </h2>
+      <router-outlet></router-outlet>
     </div>
-</header>
-
-</head>
-<body>
-
-<h1>Create an item based on system</h1>
-
-Name: <input type="text" name ="name" id="nameadd" >
-Type: <select name = "type" id="typeadd"><option value = "book">book</option><option value = "cd">cd</option></select>
-
-Loan Period: <input type="text" name ="loan" id="loanadd" oninput="value=value.replace(/[^\d]/g,'')">
-Quantity: <input type="text" name ="quantity" id="quantityadd" oninput="value=value.replace(/[^\d]/g,'')">
-<button id ="create" (click)="onCreate()">create items</button>
-
-
-<h1>Get all items</h1>
-
-<ol id ="insert"></ol>
-<button id ="get" (click)="onClick()">get items</button>
-
-
-<h1>information for items avaliable</h1>
-<form id="info"></form>
-
-</body>
-</html>
+  </div>

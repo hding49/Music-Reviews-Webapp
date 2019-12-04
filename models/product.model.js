@@ -1,15 +1,18 @@
+//const uniqueValidator = require('mongoose-unique-validator');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 var ProductSchema = new Schema({
-    username: {type: String, required: 'Username can\'t be empty', unique: true, max: 100},
+    username: {type: String, required: 'Username can\'t be empty', index: true, unique: true, max: 100},
     password: {type: String, required: 'Password can\'t be empty', minlength: [4, 'Password must be atleast 4 character long'], max: 100},
     //loan: {type: Number, required: true},
     //quantity: {type: Number, required: true},
     
 });
+//ProductSchema.plugin(uniqueValidator);
 
 // Custom validation for email
 ProductSchema.path('username').validate((val) => {
