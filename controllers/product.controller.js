@@ -1,6 +1,8 @@
+const mongoose = require('mongoose');
 const Product = require('../models/product.model');
+const passport = require('passport');
+const _ = require('lodash');
 
-//Simple version, without validation or sanitation
 exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
@@ -50,3 +52,45 @@ exports.product_delete = function (req, res) {
         res.send("delete successfully!");
     })
 };
+
+const User = mongoose.model('Product');
+//module.exports.register = (req, res, next) =>
+module.exports.register = (req, res, next) => {
+    var user = new User();
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.save((err, doc) => {
+        if (!err)
+            res.send(doc);
+        else {
+            if (err.code == 11000)
+                res.status(422).send(['Duplicate email adrress found.']);
+            else
+                return next(err);
+        }
+
+    });
+}
+
+module.exports.authenticate = (req, res, next) => {
+    // call for passport authentication
+    passport.authenticate('local', (err, user, info) => {       
+        // error from passport middleware
+        if (err) return res.status(400).json(err);
+        // registered user
+        else if (user) return res.status(200).json({ "token": user.generateJwt() });
+        // unknown user or wrong password
+        else return res.status(404).json(info);
+    })(req, res);
+}
+
+module.exports.userProfile = (req, res, next) =>{
+    User.findOne({ _id: req._id },
+        (err, user) => {
+            if (!user)
+                return res.status(404).json({ status: false, message: 'User record not found.' });
+            else
+                return res.status(200).json({ status: true, user : _.pick(user,['fullName','email']) });
+        }
+    );
+}

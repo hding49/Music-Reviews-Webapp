@@ -19,5 +19,11 @@ router.put('/:id/update', product_controller.product_update);
 
 router.delete('/:id/delete', product_controller.product_delete);
 
+const jwtHelper = require('../config/jwtHelper');
+
+router.post('/register', product_controller.register);
+router.post('/authenticate', product_controller.authenticate);
+router.get('/userProfile',jwtHelper.verifyJwtToken, product_controller.userProfile);
+
 
 module.exports = router;

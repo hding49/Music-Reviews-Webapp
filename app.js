@@ -1,7 +1,12 @@
 // app.js
+require('./config/config');
+require('./models/db');
+require('./config/passportConfig');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const passport = require('passport');
 
 const product = require('./routes/product.route'); // Imports routes for the products
 const app = express();
@@ -23,9 +28,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/products', product);
 
-let port = 8080;
+// middleware
+//app.use(bodyParser.json());
+app.use(cors());
+app.use(passport.initialize());
+//app.use('/api', rtsIndex);
 
-app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
+// error handler
+app.use((err, req, res, next) => {
+    if (err.name === 'ValidationError') {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors)
+    }
+    
 });
 
+//let port = 8080;
+
+//app.listen(port, () => {
+  //  console.log('Server is up and running on port numner ' + port);
+//});
+
+//start server
+app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));
