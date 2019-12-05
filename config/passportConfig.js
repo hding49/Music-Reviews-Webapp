@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 var User = mongoose.model('Product');
 
 passport.use(
-    new localStrategy({ emailField: 'email' },
-        (email, password, done) => {
-            User.findOne({ email: email },
+    new localStrategy({ usernameField: 'email' },
+        (username, password, done) => {
+            User.findOne({ email: username },
                 (err, user) => {
                     if (err)
                         return done(err);
