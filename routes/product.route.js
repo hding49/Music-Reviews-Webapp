@@ -24,6 +24,6 @@ const jwtHelper = require('../config/jwtHelper');
 router.post('/register', product_controller.register);
 router.post('/authenticate', product_controller.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, product_controller.userProfile);
-router.put('/activate/:token', product_controller.activateUser);
+router.get('/activate/:token', product_controller.activateUser);
 
 module.exports = router;

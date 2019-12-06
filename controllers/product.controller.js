@@ -82,9 +82,10 @@ module.exports.register = (req, res, next) => {
                 to: user.email,
                 subject: 'Localhost Activation Link',
                 text: 'Hello, thank you for registering at localhost.com.',
-                html: 'Hello<strong> ' + user.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/products/activate/' + user.email + '">http://localhost:8080/activate/</a>'
+                html: 'Hello<strong> ' + user.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/products/activate/' + user.email + '">http://localhost:8080/activate</a>'
             };
             // Function to send e-mail to the user
+            //http://localhost:8080/products/activate/
             client.sendMail(email, function(err, info) {
                 //console.log('1');
                 if (err) console.log(err); // If error with sending e-mail, log to console/terminal
@@ -131,9 +132,9 @@ module.exports.userProfile = (req, res, next) =>{
 
 // Route to activate the user's account	
 module.exports.activateUser = (req, res) => {
-
-    User.findOneAndUpdate({email:req.params.toekn},{$set:{active:true}}).then((updatedDoc)=>{
-        
+console.log(req.params.token);
+    User.findOneAndUpdate({email:req.params.token},{$set:{active:true}}).then((updatedDoc)=>{
+        //user.active = true;
         res.send('<html><a href="http://localhost:4200/login">back</a></html>');
     });
 
