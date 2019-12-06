@@ -28,6 +28,10 @@ export class HomeService {
     return this.http.get(environment.apiBaseUrl + '/userProfile');
   }
 
+  //activation() {
+   // return this.http.put(environment.apiBaseUrl + '/activate/:token', );
+  //}
+
 
   //Helper Methods
 

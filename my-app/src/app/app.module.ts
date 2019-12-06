@@ -16,6 +16,13 @@ import { SigninComponent } from './home/signin/signin.component';
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+//import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'ng4-social-login';
+//const config = new AuthServiceConfig([
+//{
+  //id:GoogleLoginProvider.PROVIDER_ID,
+  //provider:new GoogleLoginProvider(''),
+//}
+//],false)
 
 @NgModule({
   declarations: [

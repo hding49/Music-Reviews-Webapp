@@ -8,8 +8,8 @@ const jwt = require('jsonwebtoken');
 var ProductSchema = new Schema({
     email: {type: String, required: 'Email can\'t be empty', index: true, unique: true, max: 100},
     password: {type: String, required: 'Password can\'t be empty', minlength: [4, 'Password must be atleast 4 character long'], max: 100},
-    //loan: {type: Number, required: true},
-    //quantity: {type: Number, required: true},
+    active: {type: Boolean, required: true, default: false},
+    temporarytoken: {type: String, required: true},
     
 });
 //ProductSchema.plugin(uniqueValidator);
