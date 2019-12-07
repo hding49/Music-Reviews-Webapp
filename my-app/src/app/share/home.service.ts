@@ -20,6 +20,10 @@ export class HomeService {
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
 
+  postGoogle(user: Product){
+    return this.http.post(environment.apiBaseUrl+'/googlelogin',user,this.noAuthHeader);
+  }
+
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
   }

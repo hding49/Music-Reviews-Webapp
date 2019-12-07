@@ -15,10 +15,21 @@
     </div>
 
     <input type="submit" value="Sign In">
+    <button (click) = 'googlelogin()'>Google Login</button>
+    <div class = "col-md-12" style="text-align: -webkit-cent;" >
+      <div class = "card" style="width:20rem;margin:20px 0 24px 0; text-align: -webkit-cent;" *ngIf = "user.photoUrl">
+        
+        <div>
+          <h4 >{{user.name}}</h4>
+          <p >{{user.email}}</p>
+        </div>
+      </div>
+    </div>
     
   </form>
 
   <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}
+    <button *ngIf="serverErrorMessages=='User not activated!'">sss</button>
   </div>

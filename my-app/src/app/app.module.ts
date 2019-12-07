@@ -16,13 +16,17 @@ import { SigninComponent } from './home/signin/signin.component';
 //other
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-//import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'ng4-social-login';
-//const config = new AuthServiceConfig([
-//{
-  //id:GoogleLoginProvider.PROVIDER_ID,
-  //provider:new GoogleLoginProvider(''),
-//}
-//],false)
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'ng4-social-login';
+const config = new AuthServiceConfig([
+{
+  id:GoogleLoginProvider.PROVIDER_ID,
+  provider:new GoogleLoginProvider('556539806978-iqe6veisiloppprsrjelboovkljvam2r.apps.googleusercontent.com')
+}
+],false);
+
+export function provideConfig(){
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -38,14 +42,19 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
 
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS,
+    provide: HTTP_INTERCEPTORS, 
+    
     useClass: AuthInterceptor,
     multi: true
-  },AuthGuard,HomeService],
+  },AuthGuard,HomeService,
+  
+  {provide: AuthServiceConfig, useFactory: provideConfig}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

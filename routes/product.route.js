@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Require the controllers WHICH WE DID NOT CREATE YET!!
 const product_controller = require('../controllers/product.controller');
+const song_controller = require('../controllers/song.controller');
 
 
 // a simple test url to check that all of our files are communicating correctly.
@@ -25,5 +26,10 @@ router.post('/register', product_controller.register);
 router.post('/authenticate', product_controller.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, product_controller.userProfile);
 router.get('/activate/:token', product_controller.activateUser);
+
+router.post('/googlelogin', product_controller.google_login);
+
+//song part
+router.post('/song_create', song_controller.song_create);
 
 module.exports = router;

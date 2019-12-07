@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/hding49/ece9065-hding49-project#readme",
   "dependencies": {
+    "angular5-social-login": "^1.0.9",
+    "angularx-social-login": "^2.2.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -28,6 +30,8 @@
     "nodemailer": "^6.4.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "rxjs": "^6.5.3",
+    "rxjs-compat": "^6.5.3"
   }
 }

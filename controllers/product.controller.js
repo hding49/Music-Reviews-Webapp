@@ -58,8 +58,8 @@ exports.product_delete = function (req, res) {
 // Start Sendgrid Configuration Settings	
 var options = {
     auth: {
-        api_user: 'Huangyh', // Sendgrid username
-        api_key: 'sendgridHYH961122' // Sendgrid password
+        api_user: 'hding49', // Sendgrid username Huangyh
+        api_key: 'allen123456' // Sendgrid password sendgridHYH961122
     }
 }
 var client = nodemailer.createTransport(sgTransport(options));
@@ -140,3 +140,20 @@ console.log(req.params.token);
 
 };
 
+module.exports.google_login = (req, res) => {
+    var user = new User();
+    user.email = req.body.email;
+    user.password = "666666";
+    user.active = true;
+    //user.temporarytoken = false;
+    
+
+    user.save(function (err, doc) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(doc);
+        }
+    })
+};
