@@ -15,6 +15,7 @@ export class SigninComponent implements OnInit {
   
   public user: any = SocialUser;
   googleuser = new Home;
+  googleuser1 = new Home;
   //public googleuser : any = Home;
 
   constructor(private homeService: HomeService, private router : Router, private socialAuthService : AuthService) { }
@@ -26,10 +27,17 @@ googlelogin(){
     this.googleuser.email = this.user.email;
     this.googleuser.password = "666666";
     //this.googleuser.active = true;
-
-    //this.postGoogle(this.googleuser)
-
     this.homeService.postGoogle(this.googleuser).subscribe(
+      res => {
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
+    //this.postGoogle(this.googleuser)
+    this.googleuser1.email = this.user.email;
+    this.googleuser1.password = "666666";
+    this.homeService.login(this.googleuser1).subscribe(
       res => {
         this.homeService.setToken(res['token']);
         this.router.navigateByUrl('/userprofile');

@@ -4,6 +4,7 @@ const router = express.Router();
 // Require the controllers WHICH WE DID NOT CREATE YET!!
 const product_controller = require('../controllers/product.controller');
 const song_controller = require('../controllers/song.controller');
+const review_controller = require('../controllers/review.controller');
 
 
 // a simple test url to check that all of our files are communicating correctly.
