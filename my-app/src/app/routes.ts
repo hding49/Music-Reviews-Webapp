@@ -1,11 +1,19 @@
-  import { Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
+import { SongCreateComponent } from './song/song-create/song-create.component';
+import { SongComponent } from './song/song.component';
+import { SongSearchComponent } from './song/song-search/song-search.component';
+import { AboutComponent } from './about/about.component';
 
 export const appRoutes: Routes = [
+    {
+        path: 'about-us', component: AboutComponent,
+        //children: [{ path: '', component: SignupComponent }]
+    },
     {
         path: 'signup', component: HomeComponent,
         children: [{ path: '', component: SignupComponent }]
@@ -19,5 +27,18 @@ export const appRoutes: Routes = [
     },
     {
         path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
+        path: 'songcreate', component: SongCreateComponent,
+        //children: [{ path: '', component: SongCreateComponent }]
+    },
+    {
+        path: 'songsearch', component: SongSearchComponent,
+        //children: [{ path: '', component: SongCreateComponent }]
+    },
+    {
+        path: 'song', component: SongComponent,
+        children: [{ path: '', component: SongCreateComponent }]
     }
+
 ];

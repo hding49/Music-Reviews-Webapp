@@ -49,6 +49,28 @@ app.use((err, req, res, next) => {
 //app.listen(port, () => {
   //  console.log('Server is up and running on port numner ' + port);
 //});
+var buddha = " \n\
+                            _ooOoo_ \n\
+                           o8888888o \n\
+                           88\" . \"88 \n\
+                           (| -_- |) \n\
+                            O\\ = /O \n\
+                        ____/`---'\\____ \n\
+                      .   ' \\\\| |// `. \n\
+                       / \\\\||| : |||// \\ \n\
+                     / _||||| -:- |||||- \\ \n\
+                       | | \\\\\\ - /// | | \n\
+                     | \\_| ''\\---/'' | | \n\
+                      \\ .-\\__ `-` ___/-. / \n\
+                   ___`. .' /--.--\\ `. . __ \n\
+                .\"\" '< `.___\\_<|>_/___.' >'\"\". \n\
+               | | : `- \\`.;`\\ _ /`;.`/ - ` : | | \n\
+                 \\ \\ `-. \\_ __\\ /__ _/ .-` / / \n\
+         ======`-.____`-.___\\_____/___.-`____.-'====== \n\
+                            `=---=' \n\
+                            'No BUGS!' \n\
+";
+console.log(buddha);
 
 //start server
 app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));

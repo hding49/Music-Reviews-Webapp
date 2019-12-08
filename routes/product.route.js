@@ -5,6 +5,7 @@ const router = express.Router();
 const product_controller = require('../controllers/product.controller');
 const song_controller = require('../controllers/song.controller');
 const review_controller = require('../controllers/review.controller');
+const playlist_controller = require('../controllers/playlist.controller');
 
 
 // a simple test url to check that all of our files are communicating correctly.
@@ -32,5 +33,7 @@ router.post('/googlelogin', product_controller.google_login);
 
 //song part
 router.post('/song_create', song_controller.song_create);
+router.get('/song_search/:id', song_controller.song_search);
+router.get('/song_sort', song_controller.song_sort);
 
 module.exports = router;

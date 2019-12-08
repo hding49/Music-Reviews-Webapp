@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
-import { Product } from '../../../../models/product.model';
+//import { Home } from '../../../../models/product.model';
+import { Home } from './home.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  selectedUser: Product = {
+  selectedUser: Home = {
     email: '',
     password: ''
   };
@@ -16,11 +17,11 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  postUser(user: Product){
+  postUser(user: Home){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
 
-  postGoogle(user: Product){
+  postGoogle(user: Home){
     return this.http.post(environment.apiBaseUrl+'/googlelogin',user,this.noAuthHeader);
   }
 

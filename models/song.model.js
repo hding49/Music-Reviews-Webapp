@@ -5,10 +5,17 @@ const Schema = mongoose.Schema;
 
 
 var SongSchema = new Schema({
-    song_name: {type: String, required: 'Email can\'t be empty', index: true, unique: true, max: 100},
-    //password: {type: String, required: 'Password can\'t be empty', minlength: [4, 'Password must be atleast 4 character long'], max: 100},
-    //active: {type: Boolean, required: true, default: false},
-    //temporarytoken: {type: String},
+    Title: {type: String, required: 'Email can\'t be empty', index: true, unique: true, max: 100},
+    Artist: {type: String, required: 'Email can\'t be empty', max: 100},
+    Album: {type: String, required: 'Email can\'t be empty', max: 100},
+    Year: {type: String, required: 'Email can\'t be empty', max: 100},
+    Comments: {type: String, required: 'Email can\'t be empty', max: 100},
+    Reserved: {type: String, required: 'Email can\'t be empty', max: 100},
+    Track: {type: String, required: 'Email can\'t be empty',  max: 100},
+    Genre: {type: String, required: 'Email can\'t be empty', max: 100},
+
+    AvRate: {type: String,}
+    //NumRate: {type: String,}
     
 });
 //ProductSchema.plugin(uniqueValidator);

@@ -17,6 +17,11 @@ import { SigninComponent } from './home/signin/signin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'ng4-social-login';
+import { SongComponent } from './song/song.component';
+import { SongCreateComponent } from './song/song-create/song-create.component';
+import { SongSearchComponent } from './song/song-search/song-search.component';
+import { SongToprateComponent } from './song/song-toprate/song-toprate.component';
+import { AboutComponent } from './about/about.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -34,7 +39,12 @@ export function provideConfig(){
     HomeComponent,
     SignupComponent,
     UserProfileComponent,
-    SigninComponent
+    SigninComponent,
+    SongComponent,
+    SongCreateComponent,
+    SongSearchComponent,
+    SongToprateComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
