@@ -1,0 +1,22 @@
+
+
+
+<form #reviewCreateForm="ngForm" (ngSubmit)="reviewCreateForm.valid && onSubmit(reviewCreateForm)">
+  
+    <input type="text" #songN="ngModel" [(ngModel)]="reviewService.selectedReview.songN" name="songN" placeholder="song name">
+    <input type="text" #comment="ngModel" [(ngModel)]="reviewService.selectedReview.comment" name="comment" placeholder="comment">
+
+       
+    <input type="submit" value="Create review">
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

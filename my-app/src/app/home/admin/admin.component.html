@@ -1,0 +1,21 @@
+
+<form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
+  
+
+       
+  <input type="text" name="Title" placeholder="Title">
+  <input type="text" name="Artist" placeholder="Artist">
+
+<input type="submit" value="Sign In">
+        
+  </form>
+      
+      <!-- Success message -->
+      <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>

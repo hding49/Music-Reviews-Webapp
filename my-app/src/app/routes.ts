@@ -8,6 +8,12 @@ import { SongCreateComponent } from './song/song-create/song-create.component';
 import { SongComponent } from './song/song.component';
 import { SongSearchComponent } from './song/song-search/song-search.component';
 import { AboutComponent } from './about/about.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { SongToprateComponent } from './song/song-toprate/song-toprate.component';
+import { AdminComponent } from './home/admin/admin.component';
+import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
+import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 
 export const appRoutes: Routes = [
     {
@@ -29,16 +35,37 @@ export const appRoutes: Routes = [
         path: '', redirectTo: '/login', pathMatch: 'full'
     },
     {
-        path: 'songcreate', component: SongCreateComponent,
-        //children: [{ path: '', component: SongCreateComponent }]
-    },
-    {
-        path: 'songsearch', component: SongSearchComponent,
-        //children: [{ path: '', component: SongCreateComponent }]
-    },
-    {
-        path: 'song', component: SongComponent,
+        path: 'songcreate', component: SongComponent,
         children: [{ path: '', component: SongCreateComponent }]
+    },
+    {
+        path: 'songsearch', component: SongComponent,
+        children: [{ path: '', component: SongSearchComponent }]
+    },
+    {
+        path: 'topten', component: SongComponent,
+        children: [{ path: '', component: SongToprateComponent }]
+    },
+    {
+        path: 'reviews', component: ReviewsComponent,
+        
+    },
+    {
+        path: 'playlist', component: PlaylistComponent,
+       
+    },
+    {
+        path: 'admin', component: HomeComponent,
+        children: [{ path: '', component: AdminComponent }]
+       
+    },
+    {
+        path: 'reviewcreate', component: ReviewsComponent,
+        children: [{ path: '', component: ReviewCreateComponent }]
+    },
+    {
+        path: 'reviewread', component: ReviewsComponent,
+        children: [{ path: '', component: ReviewReadComponent }]
     }
 
 ];

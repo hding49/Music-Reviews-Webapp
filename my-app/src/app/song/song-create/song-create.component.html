@@ -1,26 +1,19 @@
 
 
-<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+<form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
   
-
-    <input type="text" #email="ngModel" [(ngModel)]="homeService.selectedUser.email" name="email" placeholder="Email"
-    required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
-    <div *ngIf="signUpForm.submitted && email.errors">
-      <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
-      <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
-    </div>
-  
-      <input type="password" #password="ngModel" [(ngModel)]="homeService.selectedUser.password" name="password" placeholder="Password"
-      minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
-      <div *ngIf="signUpForm.submitted && password.errors">
-        <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-        <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
-      </div>
-  
-      <input type="submit" value="Sign Up">
+<input type="text" #Title="ngModel" [(ngModel)]="songService.selectedSong.Title" name="Title" placeholder="Title">
+<input type="text" #Artist="ngModel" [(ngModel)]="songService.selectedSong.Artist" name="Artist" placeholder="Artist">
+<input type="text" #Album="ngModel" [(ngModel)]="songService.selectedSong.Album" name="Album" placeholder="Album">
+<input type="text" #Year="ngModel" [(ngModel)]="songService.selectedSong.Year" name="Year" placeholder="Year">
+<input type="text" #Comments="ngModel" [(ngModel)]="songService.selectedSong.Comments" name="Comments" placeholder="Comments">
+<input type="text" #Reserved="ngModel" [(ngModel)]="songService.selectedSong.Reserved" name="Reserved" placeholder="Reserved">
+<input type="text" #Track="ngModel" [(ngModel)]="songService.selectedSong.Track" name="Track" placeholder="Track">
+<input type="text" #Genre="ngModel" [(ngModel)]="songService.selectedSong.Genre" name="Genre" placeholder="Genre">
+   
+<input type="submit" value="Create Song">
       
-  
-    </form>
+</form>
     
     <!-- Success message -->
     <div class="success" *ngIf="showSucessMessage">

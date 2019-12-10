@@ -32,8 +32,15 @@ router.get('/activate/:token', product_controller.activateUser);
 router.post('/googlelogin', product_controller.google_login);
 
 //song part
-router.post('/song_create', song_controller.song_create);
-router.get('/song_search/:id', song_controller.song_search);
-router.get('/song_sort', song_controller.song_sort);
+router.post('/songcreate', song_controller.song_create);
+router.get('/songsearch/:id', song_controller.song_search);
+router.get('/songsort', song_controller.song_sort);
+
+//review part
+router.post('/reviewcreate', review_controller.review_create);
+
+//playlist part
+router.post('/playlistcreate', playlist_controller.playlist_create);
+
 
 module.exports = router;

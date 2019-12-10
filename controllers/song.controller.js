@@ -77,8 +77,20 @@ module.exports.song_search = (req, res, next) => {
 
 module.exports.song_sort = (req, res, next) => {
 
-song.find().sort({"AvRate":-1}).limit(10).then((song) => {
-  return res.status(200).send(song);
-})
+
+//song.find().sort({"AvRate":-1}).limit(10).then((song) => {
+    
+ // return res.status(200).send(song);
+//})
+
+var arr = new Array();
+    Review.aggregate([
+        { "$group": { _id: "$songN", count: { $sum: 1 } } }
+    ]).sort({ "count": -1 }).limit(10).then((list) => {
+        for (var i = 0; i < list.length; i++) { arr.push(list[i]); } // get _id from { "_id": "song5", "count": 4 }
+        console.log(arr);
+        return res.status(200).send(arr);
+    })
 
 }
+

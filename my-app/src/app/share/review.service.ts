@@ -3,28 +3,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 //import { Home } from '../../../../models/product.model';
-import { Song } from './song.model';
+import { Review } from './review.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SongService {
-  selectedSong: Song = {
-    Title: '',
-    Artist: '',
-    Album: '',
-    Year: '',
-    Comments: '',
-    Reserved: '',
-    Track: '',
-    Genre: ''
+export class ReviewService {
+  selectedReview: Review = {
+    comment: '',
+    songN: '',
+   
   };
  // noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 
   constructor(private http: HttpClient) { }
 
-  postSong(song: Song){
-    return this.http.post(environment.apiBaseUrl+'/songcreate',song);
+  postReview(review: Review){
+    return this.http.post(environment.apiBaseUrl+'/reviewcreate',review);
   }
 
   searchSong(id){

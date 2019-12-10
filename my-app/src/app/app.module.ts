@@ -22,6 +22,13 @@ import { SongCreateComponent } from './song/song-create/song-create.component';
 import { SongSearchComponent } from './song/song-search/song-search.component';
 import { SongToprateComponent } from './song/song-toprate/song-toprate.component';
 import { AboutComponent } from './about/about.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { AdminComponent } from './home/admin/admin.component';
+import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
+//import { ReviewReadComponent } from './reviews/review-read/review-read.component';
+import { ReviewUpdateComponent } from './reviews/review-update/review-update.component';
+import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -44,7 +51,14 @@ export function provideConfig(){
     SongCreateComponent,
     SongSearchComponent,
     SongToprateComponent,
-    AboutComponent
+    AboutComponent,
+    ReviewsComponent,
+    PlaylistComponent,
+    AdminComponent,
+    ReviewCreateComponent,
+    //ReviewReadComponent,
+    ReviewUpdateComponent,
+    ReviewReadComponent
   ],
   imports: [
     BrowserModule,
