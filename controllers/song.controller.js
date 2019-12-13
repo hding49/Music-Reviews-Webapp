@@ -2,18 +2,20 @@ const mongoose = require('mongoose');
 const Song = require('../models/song.model');
 
 exports.song_create = function (req, res) {
-    var song = new Song(
-        {
-            Title: req.body.Title,
-            Artist: req.body.Artist,
-            Album: req.body.Album,
-            Year: req.body.Year,
-            Comments: req.body.Comments,
-            Reserved: req.body.Reserved,
-            Track: req.body.Track,
-            Genre: req.body.Genre,
-        }
-    );
+    var song = new Song();
+        
+           song.Title = req.body.Title;
+           song.Artist = req.body.Artist;
+           song.Album = req.body.Album;
+           song.Year = req.body.Year;
+           song.Comments = req.body.Comments;
+           song.Reserved = req.body.Reserved;
+            song.Track = req.body.Track;
+            song.Genre = req.body.Genre;
+            song.AvRate = "0";
+           // Top:"0",
+        
+   
 
     song.save((err, doc) => {
        if (!err){
@@ -54,6 +56,7 @@ exports.song_delete = function (req, res) {
 
 module.exports.song_search = (req, res, next) => {
     var word = req.params.id;
+    word = word.replace(/\s/g, "");
     var _filter = {
         $or: [
             { Title: { $regex: word, $options: '$i' } },
@@ -76,21 +79,57 @@ module.exports.song_search = (req, res, next) => {
 }
 
 module.exports.song_sort = (req, res, next) => {
-
-
-//song.find().sort({"AvRate":-1}).limit(10).then((song) => {
-    
- // return res.status(200).send(song);
-//})
-
 var arr = new Array();
-    Review.aggregate([
-        { "$group": { _id: "$songN", count: { $sum: 1 } } }
-    ]).sort({ "count": -1 }).limit(10).then((list) => {
-        for (var i = 0; i < list.length; i++) { arr.push(list[i]); } // get _id from { "_id": "song5", "count": 4 }
-        console.log(arr);
-        return res.status(200).send(arr);
-    })
+console.log(1);
+Song.find().sort({AvRate: -1}).limit(10).then((song) => {
+    console.log(2);
+    for (var i = 0; i < song.length; i++) { 
+    var searchSong = {
+        Top: i+1,    
+        Title: song[i].Title,
+            Artist: song[i].Artist,
+            Album: song[i].Album,
+            Year: song[i].Year,
+            Comments: song[i].Comments,
+            Reserved: song[i].Reserved,
+            Track: song[i].Track,
+            Genre: song[i].Genre,
+            AvRate: song[i].AvRate
+
+    };
+       
+       
+    arr.push(searchSong); 
+    console.log(3);
+   } 
+    //console.log(arr);
+    return res.status(200).send(arr);
+})
+
 
 }
+
+module.exports.song_top10 = (req, res, next) => {
+    var array = new Array();
+    //var song = new Song();
+    Song.find().sort({AvRate: -1}).limit(10).then((song) => {
+        //console.log(song);
+        for (var i = 0; i < song.length; i++) {
+            var searchSong = {
+                Top: i+1,    
+                Title: song[i].Title,
+                    Artist: song[i].Artist,
+                    Album: song[i].Album,
+                    year: song[i].Year,
+                    Comments: song[i].Comments,
+                    Reserved: song[i].Reserved,
+                    Track: song[i].Track,
+                    Genre: song[i].Genre,
+                    AvRate: song[i].AvRate
+            };
+            array.push(searchSong);
+        }
+        return res.status(200).send(array);
+    })
+};
 

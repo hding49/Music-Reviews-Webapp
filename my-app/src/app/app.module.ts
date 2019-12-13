@@ -29,6 +29,8 @@ import { ReviewCreateComponent } from './reviews/review-create/review-create.com
 //import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 import { ReviewUpdateComponent } from './reviews/review-update/review-update.component';
 import { ReviewReadComponent } from './reviews/review-read/review-read.component';
+import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
+import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
 const config = new AuthServiceConfig([
 {
   id:GoogleLoginProvider.PROVIDER_ID,
@@ -58,7 +60,9 @@ export function provideConfig(){
     ReviewCreateComponent,
     //ReviewReadComponent,
     ReviewUpdateComponent,
-    ReviewReadComponent
+    ReviewReadComponent,
+    PlaylistCreateComponent,
+    PlaylistReadComponent
   ],
   imports: [
     BrowserModule,

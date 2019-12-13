@@ -132,7 +132,7 @@ module.exports.userProfile = (req, res, next) =>{
 
 // Route to activate the user's account	
 module.exports.activateUser = (req, res) => {
-console.log(req.params.token);
+//console.log(req.params.token);
     User.findOneAndUpdate({email:req.params.token},{$set:{active:true}}).then((updatedDoc)=>{
         //user.active = true;
         res.send('<html><a href="http://localhost:4200/login">back</a></html>');

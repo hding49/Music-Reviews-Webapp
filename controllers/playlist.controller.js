@@ -15,13 +15,15 @@ exports.playlist_create = function (req, res) {
     );
 
     playlist.save((err, doc) => {
-       if (!err){
-        res.send(doc);
-               }
-               else if (err){
-                
-                       return next(err);
-               }
+        if (!err){
+            res.send(doc);
+                   }
+                   else if (err){
+                       if (err.code == 11000)
+                           res.status(422).send(['Duplicate playlist name found.']);
+                       else
+                           return next(err);
+                   }
            });
 };
 

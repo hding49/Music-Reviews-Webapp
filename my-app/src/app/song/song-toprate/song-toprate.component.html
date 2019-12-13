@@ -1,9 +1,9 @@
 
 <form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
-  
-
        
-    <input type="submit" value="Top Ten">
+    <input type="submit" value="Top Ten" (click) = "TopTenSong()">
+
+    <form id="topten"></form>
           
     </form>
         

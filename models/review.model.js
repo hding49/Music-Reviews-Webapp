@@ -9,7 +9,7 @@ var ReviewSchema = new Schema({
     comment: {type: String, required: 'Email can\'t be empty', max: 200},
    // rating: {type: String, required: 'Email can\'t be empty', max: 200},
    // owner: {type: String, required: 'Email can\'t be empty', max: 200},
-    //time: {type: Date},
+    time: {type: Date},
     
 });
 //ProductSchema.plugin(uniqueValidator);

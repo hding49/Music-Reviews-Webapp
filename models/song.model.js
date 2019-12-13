@@ -5,16 +5,17 @@ const Schema = mongoose.Schema;
 
 
 var SongSchema = new Schema({
-    Title: {type: String, required: 'Email can\'t be empty', index: true, unique: true, max: 100},
-    Artist: {type: String, required: 'Email can\'t be empty', max: 100},
-    Album: {type: String, required: 'Email can\'t be empty', max: 100},
-    Year: {type: String, required: 'Email can\'t be empty', max: 100},
-    Comments: {type: String, required: 'Email can\'t be empty', max: 100},
-    Reserved: {type: String, required: 'Email can\'t be empty', max: 100},
-    Track: {type: String, required: 'Email can\'t be empty',  max: 100},
-    Genre: {type: String, required: 'Email can\'t be empty', max: 100},
+    Title: {type: String,  index: true, unique: true, max: 100},
+    Artist: {type: String,  max: 100},
+    Album: {type: String,  max: 100},
+    Year: {type: String,  max: 100},
+    Comments: {type: String,  max: 100},
+    Reserved: {type: String,  max: 100},
+    Track: {type: String,   max: 100},
+    Genre: {type: String,  max: 100},
 
-    AvRate: {type: String,}
+    AvRate: {type: String, default: "0"},
+    //Top: {type: String},
     //NumRate: {type: String,}
     
 });

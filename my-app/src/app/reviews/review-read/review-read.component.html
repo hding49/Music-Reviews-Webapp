@@ -1,1 +1,22 @@
-<p>review-read works!</p>
+
+
+<form >
+  
+    <input id="reviewsearch" type="text"  name="songN" placeholder="song name">
+
+       
+    <input type="submit" value="Song review" (click) = "SearchReview()">
+    <br/>
+    <form id="review"></form>
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

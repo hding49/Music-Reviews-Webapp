@@ -34,10 +34,12 @@ router.post('/googlelogin', product_controller.google_login);
 //song part
 router.post('/songcreate', song_controller.song_create);
 router.get('/songsearch/:id', song_controller.song_search);
-router.get('/songsort', song_controller.song_sort);
+router.get('/songsort', song_controller.song_top10);
 
 //review part
 router.post('/reviewcreate', review_controller.review_create);
+router.get('/reviewread', review_controller.review_read);
+router.get('/reviewsearch/:id', review_controller.review_search);
 
 //playlist part
 router.post('/playlistcreate', playlist_controller.playlist_create);

@@ -27,6 +27,76 @@ export class SongService {
     return this.http.post(environment.apiBaseUrl+'/songcreate',song);
   }
 
+  TopTen(){
+    return this.http.get(environment.apiBaseUrl+'/songsort').subscribe(data1 => {
+        
+      console.log(data1);
+
+      var child = document.getElementById("topten").children;
+
+             for (var j=child.length-1; j>=0; j--) 
+             {
+                document.getElementById("topten").removeChild(child[j]);
+             }
+
+             for (var i=0; i<data1['length']; i++)
+             {
+                 this.showTop(data1[i]);
+             }
+ 
+    });
+  }
+
+  showTop(obj1)
+  {  
+      var ele1 = document.createElement("p")
+      var node1 =document.createTextNode("Title:" + obj1.Title);
+      ele1.appendChild(node1);
+      document.getElementById("topten").appendChild(ele1);
+
+      var ele2 = document.createElement("p")
+      var node2 =document.createTextNode("type:" + obj1.type);
+      ele2.appendChild(node2);
+      document.getElementById("topten").appendChild(ele2);
+  
+      var ele3 = document.createElement("p")
+      var node3 =document.createTextNode("loan:" + obj1.loan);
+      ele3.appendChild(node3);
+      document.getElementById("topten").appendChild(ele3);
+  
+      var ele4 = document.createElement("p")
+      var node4 =document.createTextNode("quantity:" + obj1.quantity);
+      ele4.appendChild(node4);
+      document.getElementById("topten").appendChild(ele4);
+
+      var ele5 = document.createElement("p")
+      var node5 =document.createTextNode("name:" + obj1.name);
+      ele5.appendChild(node5);
+      document.getElementById("topten").appendChild(ele5);
+  
+      var ele2 = document.createElement("p")
+      var node2 =document.createTextNode("type:" + obj1.type);
+      ele2.appendChild(node2);
+      document.getElementById("topten").appendChild(ele2);
+  
+      var ele3 = document.createElement("p")
+      var node3 =document.createTextNode("loan:" + obj1.loan);
+      ele3.appendChild(node3);
+      document.getElementById("topten").appendChild(ele3);
+  
+      var ele4 = document.createElement("p")
+      var node4 =document.createTextNode("quantity:" + obj1.quantity);
+      ele4.appendChild(node4);
+      document.getElementById("topten").appendChild(ele4);
+  
+      var ele4 = document.createElement("p")
+      var node4 =document.createTextNode("***********");
+      ele4.appendChild(node4);
+      document.getElementById("topten").appendChild(ele4);
+  
+  
+    }
+
   searchSong(id){
     return this.http.get(environment.apiBaseUrl+'/songsearch/' +id).subscribe(data => {
         
