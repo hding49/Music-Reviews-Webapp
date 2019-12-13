@@ -1,1 +1,18 @@
-<p>playlist-read works!</p>
+
+<form #playlistReadForm="ngForm" (ngSubmit)="playlistRead.valid && onSubmit(playlistRead)">
+       
+    <input type="submit" value="playlistRead" (click) = "ReadPlaylist()">
+
+    <form id="playlistRead"></form>
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

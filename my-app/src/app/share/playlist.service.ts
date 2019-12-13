@@ -21,6 +21,42 @@ export class PlaylistService {
     return this.http.post(environment.apiBaseUrl+'/playlistcreate',playlist);
   }
 
+  getPlaylist(){
+    return this.http.get(environment.apiBaseUrl+'/playlistread').subscribe(data1 => {
+        
+      console.log(data1);
+
+      var child = document.getElementById("playlistRead").children;
+
+             for (var j=child.length-1; j>=0; j--) 
+             {
+                document.getElementById("playlistRead").removeChild(child[j]);
+             }
+
+             for (var i=0; i<data1['length']; i++)
+             {
+                 this.showPlaylist(data1[i]);
+             }
+ 
+    });
+  }
+
+  showPlaylist(obj1)
+  {  
+      var ele1 = document.createElement("p")
+      var node1 =document.createTextNode("Playlist name:" + obj1.playlistN);
+      ele1.appendChild(node1);
+      document.getElementById("playlistRead").appendChild(ele1);
+
+  
+      var ele4 = document.createElement("p")
+      var node4 =document.createTextNode("***********");
+      ele4.appendChild(node4);
+      document.getElementById("playlistRead").appendChild(ele4);
+  
+  
+    }
+
   searchSong(id){
     return this.http.get(environment.apiBaseUrl+'/songsearch/' +id).subscribe(data => {
         

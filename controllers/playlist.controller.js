@@ -27,10 +27,10 @@ exports.playlist_create = function (req, res) {
            });
 };
 
-exports.song_read = function (req, res) {
-    Song.find(function (err, song) {
+exports.playlist_read = function (req, res) {
+    Playlist.find(function (err, playlist) {
         if (err) return next(err);
-        res.send(song);
+        res.send(playlist);
     })
 };
 

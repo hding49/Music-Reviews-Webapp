@@ -43,6 +43,7 @@ router.get('/reviewsearch/:id', review_controller.review_search);
 
 //playlist part
 router.post('/playlistcreate', playlist_controller.playlist_create);
+router.get('/playlistread', playlist_controller.playlist_read);
 
 
 module.exports = router;

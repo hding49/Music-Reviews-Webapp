@@ -15,6 +15,7 @@ import { AdminComponent } from './home/admin/admin.component';
 import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
 import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
+import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
 
 export const appRoutes: Routes = [
     {
@@ -68,6 +69,12 @@ export const appRoutes: Routes = [
     {
         path: 'reviewread', component: ReviewsComponent,
         children: [{ path: '', component: ReviewReadComponent }]
+    },
+    {
+        path: 'playlistread', component: PlaylistComponent,
+        children: [{ path: '', component: PlaylistReadComponent }]
+       
     }
 
 ];
+
