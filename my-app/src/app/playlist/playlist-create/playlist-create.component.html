@@ -1,1 +1,20 @@
-<p>playlist-create works!</p>
+
+
+<form #playlistCreateForm="ngForm" (ngSubmit)="playlistCreateForm.valid && onSubmit(playlistCreateForm)">
+  
+    <input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.playlistN" name="playlistN" placeholder="Playlist Name">
+   
+       
+    <input type="submit" value="Create Playlist">
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

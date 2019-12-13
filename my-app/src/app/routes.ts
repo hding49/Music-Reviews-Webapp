@@ -14,6 +14,7 @@ import { SongToprateComponent } from './song/song-toprate/song-toprate.component
 import { AdminComponent } from './home/admin/admin.component';
 import { ReviewCreateComponent } from './reviews/review-create/review-create.component';
 import { ReviewReadComponent } from './reviews/review-read/review-read.component';
+import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
 
 export const appRoutes: Routes = [
     {
@@ -51,7 +52,8 @@ export const appRoutes: Routes = [
         
     },
     {
-        path: 'playlist', component: PlaylistComponent,
+        path: 'playlistcreate', component: PlaylistComponent,
+        children: [{ path: '', component: PlaylistCreateComponent }]
        
     },
     {
