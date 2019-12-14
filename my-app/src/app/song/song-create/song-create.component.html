@@ -2,7 +2,7 @@
 
 <form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
   
-<input type="text" #Title="ngModel" [(ngModel)]="songService.selectedSong.Title" name="Title" placeholder="Title">
+<input id = "songname" type="text" #Title="ngModel" [(ngModel)]="songService.selectedSong.Title" name="Title" placeholder="Title">
 <input type="text" #Artist="ngModel" [(ngModel)]="songService.selectedSong.Artist" name="Artist" placeholder="Artist">
 <input type="text" #Album="ngModel" [(ngModel)]="songService.selectedSong.Album" name="Album" placeholder="Album">
 <input type="text" #Year="ngModel" [(ngModel)]="songService.selectedSong.Year" name="Year" placeholder="Year">

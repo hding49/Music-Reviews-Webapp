@@ -1,12 +1,13 @@
 
-<form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
+<form #adminLoginForm="ngForm" (ngSubmit)="adminLoginForm.valid && onSubmit(adminLoginForm)">
   
+  <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email">
+   
 
-       
-  <input type="text" name="Title" placeholder="Title">
-  <input type="text" name="Artist" placeholder="Artist">
+    <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password">
 
-<input type="submit" value="Sign In">
+
+<input type="submit" value="Admin Sign In">
         
   </form>
       

@@ -1,13 +1,16 @@
 
 
 
-<form #reviewCreateForm="ngForm" (ngSubmit)="reviewCreateForm.valid && onSubmit(reviewCreateForm)">
+<form class="wrapper" #reviewCreateForm="ngForm" (ngSubmit)="reviewCreateForm.valid && onSubmit(reviewCreateForm)">
   
-    <input type="text" #songN="ngModel" [(ngModel)]="reviewService.selectedReview.songN" name="songN" placeholder="song name">
+  <div id="formContent">
+      <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
     <input type="text" #comment="ngModel" [(ngModel)]="reviewService.selectedReview.comment" name="comment" placeholder="comment">
 
        
     <input type="submit" value="Create review">
+
+  </div>
           
     </form>
         

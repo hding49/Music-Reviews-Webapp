@@ -28,23 +28,9 @@ export class SongService {
   }
 
   TopTen(){
-    return this.http.get(environment.apiBaseUrl+'/songsort').subscribe(data1 => {
+    return this.http.get(environment.apiBaseUrl+'/songsort');
         
-      console.log(data1);
-
-      var child = document.getElementById("topten").children;
-
-             for (var j=child.length-1; j>=0; j--) 
-             {
-                document.getElementById("topten").removeChild(child[j]);
-             }
-
-             for (var i=0; i<data1['length']; i++)
-             {
-                 this.showTop(data1[i]);
-             }
- 
-    });
+     
   }
 
   showTop(obj1)
@@ -88,7 +74,7 @@ export class SongService {
       var node4 =document.createTextNode("quantity:" + obj1.quantity);
       ele4.appendChild(node4);
       document.getElementById("topten").appendChild(ele4);
-  
+
       var ele4 = document.createElement("p")
       var node4 =document.createTextNode("***********");
       ele4.appendChild(node4);
@@ -97,24 +83,10 @@ export class SongService {
   
     }
 
-  searchSong(id){
-    return this.http.get(environment.apiBaseUrl+'/songsearch/' +id).subscribe(data => {
-        
-      console.log(data);
-
-      var child = document.getElementById("info").children;
-
-             for (var j=child.length-1; j>=0; j--) 
-             {
-                document.getElementById("info").removeChild(child[j]);
-             }
-
-             for (var i=0; i<data['length']; i++)
-             {
-                 this.show(data[i]);
-             }
- 
-    });
+  searchSong(word){
+    //console.log(word);
+    return this.http.get(environment.apiBaseUrl+'/songsearch/' +word);
+    //console.log(word);
   }
 
   show(obj)

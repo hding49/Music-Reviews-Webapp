@@ -157,3 +157,21 @@ module.exports.google_login = (req, res) => {
         }
     })
 };
+
+module.exports.admin_login = (req, res) => {
+    var user = new User();
+    user.email = "site manager";
+    user.password = "western2019";
+    user.active = true;
+    //user.temporarytoken = false;
+    
+
+    user.save(function (err, doc) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(doc);
+        }
+    })
+};

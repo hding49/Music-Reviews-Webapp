@@ -30,6 +30,7 @@ router.get('/userProfile',jwtHelper.verifyJwtToken, product_controller.userProfi
 router.get('/activate/:token', product_controller.activateUser);
 
 router.post('/googlelogin', product_controller.google_login);
+router.post('/adminlogin', product_controller.admin_login);
 
 //song part
 router.post('/songcreate', song_controller.song_create);

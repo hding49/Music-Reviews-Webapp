@@ -38,7 +38,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'songcreate', component: SongComponent,
-        children: [{ path: '', component: SongCreateComponent }]
+        children: [{ path: '', component: SongCreateComponent,canActivate:[AuthGuard] }]
     },
     {
         path: 'songsearch', component: SongComponent,
@@ -54,17 +54,17 @@ export const appRoutes: Routes = [
     },
     {
         path: 'playlistcreate', component: PlaylistComponent,
-        children: [{ path: '', component: PlaylistCreateComponent }]
+        children: [{ path: '', component: PlaylistCreateComponent,canActivate:[AuthGuard] }]
        
     },
     {
-        path: 'admin', component: HomeComponent,
+        path: 'adminlogin', component: HomeComponent,
         children: [{ path: '', component: AdminComponent }]
        
     },
     {
-        path: 'reviewcreate', component: ReviewsComponent,
-        children: [{ path: '', component: ReviewCreateComponent }]
+        path: 'reviewcreate', component: ReviewCreateComponent,
+        //children: [{ path: '', component: ReviewCreateComponent }]
     },
     {
         path: 'reviewread', component: ReviewsComponent,

@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 
 import {SongService} from '../../share/song.service'
 import { Router } from "@angular/router";
+import { AppComponent } from '../../app.component';
 
 import { Song } from '../../share/song.model';
 
@@ -14,18 +15,22 @@ import { Song } from '../../share/song.model';
 })
 export class SongCreateComponent implements OnInit {
 
-  constructor(private songService: SongService, private router : Router) { }
+  constructor(private songService: SongService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
+    
+    
   }
   serverErrorMessages: string;
   showSucessMessage: boolean;
   onSubmit(form : NgForm){
     this.songService.postSong(form.value).subscribe(
       res => {
+        
         //this.showSucessMessage = true;
         //this.songService.setToken(res['token']);
         this.router.navigateByUrl('/reviewcreate');
+        this.appcomponent.SongAdded = document.getElementById("songname")["value"];
         this.resetForm(form);
       },
       err => {

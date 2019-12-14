@@ -24,6 +24,9 @@ export class HomeService {
   postGoogle(user: Home){
     return this.http.post(environment.apiBaseUrl+'/googlelogin',user,this.noAuthHeader);
   }
+  postAdmin(user: Home){
+    return this.http.post(environment.apiBaseUrl+'/adminlogin',user,this.noAuthHeader);
+  }
 
   login(authCredentials) {
     

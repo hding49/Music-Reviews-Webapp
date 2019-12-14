@@ -4,6 +4,30 @@
     <input type="submit" value="Top Ten" (click) = "TopTenSong()">
 
     <form id="topten"></form>
+
+    <div  *ngIf ="searchIF">
+      <ul *ngFor ="let index of this.song; let i = index">
+        
+        <li>Name of Song: {{song[i].Title}} 
+          <button (click) = "getdetails(i)">show all</button>
+          <div *ngIf ="detail[i]">
+            <p>Artist: {{song[i].Aritist}}</p>
+            <p>Album: {{song[i].Album}}</p>
+            <p>Year: {{song[i].Year}}</p>
+            <p>Comments: {{song[i].Comments}}</p>
+            <p>Reserved: {{song[i].Reserved}}</p>  
+            <p>Track: {{song[i].Track}}</p>
+            <p>Genre: {{song[i].Genre}}</p>
+        
+            </div>
+         
+          <button (click) = "readreviews()">see review</button>
+          <button >add to playlist</button>       
+                                 
+        </li>
+      </ul>
+ 
+     </div>
           
     </form>
         

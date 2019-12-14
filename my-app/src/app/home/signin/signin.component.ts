@@ -16,6 +16,7 @@ export class SigninComponent implements OnInit {
   public user: any = SocialUser;
   googleuser = new Home;
   googleuser1 = new Home;
+  admin = new Home;
   //public googleuser : any = Home;
 
   constructor(private homeService: HomeService, private router : Router, private socialAuthService : AuthService) { }
@@ -75,4 +76,6 @@ googlelogin(){
       }
     );
   }
+
 }
+
