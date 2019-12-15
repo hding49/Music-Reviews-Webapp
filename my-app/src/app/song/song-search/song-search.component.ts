@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {SongService} from '../../share/song.service';
 import { Router } from "@angular/router";
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-song-search',
@@ -18,7 +19,7 @@ export class SongSearchComponent implements OnInit {
   
   //details = true;
 
-  constructor(private songService: SongService,private router : Router) { }
+  constructor(private songService: SongService,private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
   }
@@ -64,6 +65,14 @@ readreviews() {
   this.router.navigateByUrl('/reviewread');
   
   console.log("12");
+}
+
+addToPlayist(object) {
+  
+  this.appcomponent.SongAddedPlaylist = object;
+  console.log(this.appcomponent.SongAddedPlaylist);
+  this.router.navigateByUrl('/playlistcreate');
+  
 }
 
 }

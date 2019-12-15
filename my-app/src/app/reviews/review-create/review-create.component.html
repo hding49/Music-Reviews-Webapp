@@ -4,8 +4,19 @@
 <form class="wrapper" #reviewCreateForm="ngForm" (ngSubmit)="reviewCreateForm.valid && onSubmit(reviewCreateForm)">
   
   <div id="formContent">
-    <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
+   
       <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
+      <div>
+        Rating:  <select id = "sel" onchange="ChangeLanguage()" >
+          <option value = "1">1</option>
+          <option value = "2">2</option>
+          <option value = "3">3</option>
+          <option value = "4">4</option>
+          <option value = "5">5</option>
+          <option value = "6">6</option>
+        </select>
+      </div>
+     
     <input type="text" #comment="ngModel" [(ngModel)]="reviewService.selectedReview.comment" name="comment" placeholder="comment">
 
        

@@ -8,7 +8,7 @@ exports.review_create = function (req, res) {
         {
             comment: req.body.comment,
             songN: req.body.songN,
-           // rating: req.body.rating,
+            rating: req.body.rating,
            // owner: req.body.owner,
             time: Date(),
         
