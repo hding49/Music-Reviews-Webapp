@@ -16,7 +16,7 @@ export class SongSearchComponent implements OnInit {
   public song : any;
   searchIF = true;
   detail = new Array;
-  
+  judge = this.appcomponent.logged;
   //details = true;
 
   constructor(private songService: SongService,private router : Router, private appcomponent : AppComponent) { }

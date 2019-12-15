@@ -82,6 +82,7 @@ module.exports.playlist_search = (req, res, next) => {
     
     Playlist.find(_filter, (err, playlist) => {
         if (!playlist)
+        //if (playlist.length = 0)
             return res.status(404).json({ status: false, message: 'No search result found.' });
         else
             return res.status(200).send(playlist);

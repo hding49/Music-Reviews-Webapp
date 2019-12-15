@@ -1,7 +1,7 @@
 
 <form #songTopTenForm="ngForm" (ngSubmit)="songTopTenForm.valid && onSubmit(songTopTenForm)">
        
-    <input type="submit" value="Top Ten" (click) = "TopTenSong()">
+    <input type="submit" value="Top Ten" >
 
     <form id="topten"></form>
 
@@ -22,7 +22,7 @@
             </div>
          
           <button (click) = "readreviews()">see review</button>
-          <button (click) = "addToPlayist(song[i].Title)">add to playlist</button>       
+          <button *ngIf ="judge" (click) = "addToPlayist(song[i].Title)">add to playlist</button>       
                                  
         </li>
       </ul>

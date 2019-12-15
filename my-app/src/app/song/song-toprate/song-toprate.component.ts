@@ -16,21 +16,16 @@ export class SongToprateComponent implements OnInit {
   public song : any;
   searchIF = true;
   detail = new Array;
+  judge = this.appcomponent.logged;
 
   constructor(private songService: SongService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
   }
 
-  TopTenSong() {
-    
-    
-    this.songService.TopTen();
-    //alert(word);
-  }
 
   onSubmit(form: NgForm) {
-   
+    
     this.songService.TopTen().subscribe(
       res => {
         

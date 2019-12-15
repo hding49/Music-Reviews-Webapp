@@ -53,7 +53,7 @@ export const appRoutes: Routes = [
         
     },
     {
-        path: 'playlistcreate', component: PlaylistCreateComponent,
+        path: 'playlistcreate', component: PlaylistCreateComponent,canActivate:[AuthGuard]
         //children: [{ path: '', component: PlaylistCreateComponent,canActivate:[AuthGuard] }]
        
     },

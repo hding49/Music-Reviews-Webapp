@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
     this.homeService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
+        this.appcomponent.logged = true;
         console.log(this.userDetails.email);
         this.appcomponent.ownerPlaylist = this.userDetails.email;
         console.log(this.appcomponent.ownerPlaylist);
@@ -29,6 +30,7 @@ export class UserProfileComponent implements OnInit {
 
   onLogout(){
     this.homeService.deleteToken();
+    this.appcomponent.logged = false;
     this.router.navigate(['/login']);
   }
 

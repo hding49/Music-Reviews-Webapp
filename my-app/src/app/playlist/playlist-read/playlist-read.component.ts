@@ -88,7 +88,13 @@ removeSong(object1, ge) {
     this.RemovePlaylistObject.songs = ge;
     this.RemovePlaylistObject.playlistN=object1.playlistN;
     this.RemovePlaylistObject.owner=object1.owner;
+   // var remove ={
+    // "playlist" : object1,
+   //  "song" : ge
+   // };
+   console.log(this.RemovePlaylistObject);
     this.playlistService.updatePlaylist(this.RemovePlaylistObject).subscribe (
+    //this.playlistService.updatePlaylist(remove).subscribe (
       res => {
         //var word = "number2";
     var word1 = this.appcomponent.ownerPlaylist;
@@ -120,7 +126,9 @@ removeSong(object1, ge) {
       }
     );
 
-   })
+   }
+   
+   )
     //console.log(this.RemovePlaylistObject);
   
 }
