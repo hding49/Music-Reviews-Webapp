@@ -1,12 +1,13 @@
 
 
-<form #playlistCreateForm="ngForm" (ngSubmit)="playlistCreateForm.valid && onSubmit(playlistCreateForm)">
-  
+<form class="wrapper" #playlistCreateForm="ngForm" (ngSubmit)="playlistCreateForm.valid && onSubmit(playlistCreateForm)">
+  <div id="formContent">
+    <h2 routerLink="/playlistcreate"  routerLinkActive="active"> create playlist </h2>
     <input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.playlistN" name="playlistN" placeholder="Playlist Name">
-    <input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.owner" name="owner" placeholder="Owner Name">
+    <!--<input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.owner" name="owner" placeholder="Owner Name">-->
        
     <input type="submit" value="Add to Playlist">
-          
+     </div>     
     </form>
         
         <!-- Success message -->

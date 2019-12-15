@@ -4,6 +4,7 @@
 <form class="wrapper" #reviewCreateForm="ngForm" (ngSubmit)="reviewCreateForm.valid && onSubmit(reviewCreateForm)">
   
   <div id="formContent">
+    <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
       <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
     <input type="text" #comment="ngModel" [(ngModel)]="reviewService.selectedReview.comment" name="comment" placeholder="comment">
 

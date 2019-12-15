@@ -18,10 +18,14 @@ export class PlaylistReadComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
   public playlist : any;
+  public playlist1 : any;
   SongPlaylist = new Array();
+  SongPlaylist1 = new Array();
   playlistIF = true;
   detail = new Array;
   songs = new Array;
+  songs1 = new Array;
+  RemovePlaylistObject = new Playlist;
   constructor(private playlistService: PlaylistService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
@@ -29,9 +33,9 @@ export class PlaylistReadComponent implements OnInit {
 
  
   onSubmit(form: NgForm) {
-    var word = "number2";
-    //var word = this.appcomponent.ownerPlaylist;
-    //console.log(word);
+    //var word = "number2";
+    var word = this.appcomponent.ownerPlaylist;
+    console.log(word);
     this.playlistService.getPlaylist(word).subscribe(
       res => {
         
@@ -53,7 +57,7 @@ export class PlaylistReadComponent implements OnInit {
         //console.log(this.SongPlaylist);
       },
       err => { 
-        console.log(err);
+        //console.log(err);
         
       }
     );
@@ -74,16 +78,50 @@ getdetails(i,j) {
     this.detail[i] = true;
   }
   
-  console.log("1");
+  //console.log("1");
 }
 
-addToPlayist(object) {
+
+
+removeSong(object1, ge) {
   
-  this.appcomponent.SongAddedPlaylist = object;
-  console.log(this.appcomponent.SongAddedPlaylist);
-  this.router.navigateByUrl('/playlistcreate');
-  
-  
+    this.RemovePlaylistObject.songs = ge;
+    this.RemovePlaylistObject.playlistN=object1.playlistN;
+    this.RemovePlaylistObject.owner=object1.owner;
+    this.playlistService.updatePlaylist(this.RemovePlaylistObject).subscribe (
+      res => {
+        //var word = "number2";
+    var word1 = this.appcomponent.ownerPlaylist;
+    console.log(word1);
+    this.playlistService.getPlaylist(word1).subscribe(
+      res => {
+        
+        this.playlist1 = res;
+        //console.log(this.playlist);
+        for (var d = 0; d < this.playlist1.length; d++)
+        {
+          for (var e = 0; e < this.playlist1[d].songs.length; e++)
+          {
+            //this.SongPlaylist[m] = this.playlist[n].songs[m];
+          this.SongPlaylist1.push(this.playlist1[d].songs[e]);
+
+          }
+
+          this.songs1.push(this.SongPlaylist1);
+        }
+        this.showSucessMessage = true;
+        //console.log(this.SongPlaylist[1]);
+        //this.SongPlaylist.push(this.playlist.songs);
+        //console.log(this.SongPlaylist);
+      },
+      err => { 
+        this.serverErrorMessages = "No Playlist Now";
+        
+      }
+    );
+
+   })
+    //console.log(this.RemovePlaylistObject);
   
 }
 

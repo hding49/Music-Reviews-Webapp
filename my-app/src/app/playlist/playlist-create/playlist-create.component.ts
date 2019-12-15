@@ -24,10 +24,12 @@ export class PlaylistCreateComponent implements OnInit {
   showSucessMessage: boolean;
   onSubmit(form : NgForm){
     this.playlistObject.songs = this.appcomponent.SongAddedPlaylist;
-    console.log(this.appcomponent.SongAddedPlaylist);
-    console.log(this.playlistObject.songs);
+    //console.log(this.appcomponent.SongAddedPlaylist);
+    //console.log(this.playlistObject.songs);
     this.playlistObject.playlistN=form.value.playlistN;
-    this.playlistObject.owner=form.value.owner;
+    this.playlistObject.owner=this.appcomponent.ownerPlaylist;
+    console.log(this.playlistObject.owner);
+    console.log(this.appcomponent.ownerPlaylist);
     this.playlistService.postPlaylist(this.playlistObject).subscribe(
       res => {
         //this.showSucessMessage = true;

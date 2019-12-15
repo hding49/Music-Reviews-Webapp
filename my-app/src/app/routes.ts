@@ -53,8 +53,8 @@ export const appRoutes: Routes = [
         
     },
     {
-        path: 'playlistcreate', component: PlaylistComponent,
-        children: [{ path: '', component: PlaylistCreateComponent,canActivate:[AuthGuard] }]
+        path: 'playlistcreate', component: PlaylistCreateComponent,
+        //children: [{ path: '', component: PlaylistCreateComponent,canActivate:[AuthGuard] }]
        
     },
     {
@@ -72,7 +72,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'playlistread', component: PlaylistComponent,
-        children: [{ path: '', component: PlaylistReadComponent }]
+        children: [{ path: '', component: PlaylistReadComponent,canActivate:[AuthGuard] }]
        
     }
 

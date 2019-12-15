@@ -131,3 +131,24 @@ module.exports.playlist_update = async (req, res) => {
     //
 //}) 
 };
+
+module.exports.playlist_update = async (req, res, next) => {
+var songs = new Array();
+await Playlist.findOne({playlistN:req.body.playlistN},(err,playlist)=>{
+    for (var a = 0; a < playlist.songs.length; a++)
+    {   console.log(playlist.songs);
+        if (playlist.songs[a] != req.body.song)
+        {
+            
+            songs.push(playlist.songs[a]);
+        }
+        console.log(songs);
+    }
+
+})
+
+Playlist.findOneAndUpdate( {playlistN:req.body.playlistN}, {$set: {songs:songs}} ).then((updatedDoc)=>{
+    res.send(updatedDoc);          
+});
+
+};

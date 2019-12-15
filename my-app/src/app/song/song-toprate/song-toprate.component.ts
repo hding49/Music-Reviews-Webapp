@@ -72,8 +72,6 @@ addToPlayist(object) {
   console.log(this.appcomponent.SongAddedPlaylist);
   this.router.navigateByUrl('/playlistcreate');
   
-  
-  
 }
 
 }

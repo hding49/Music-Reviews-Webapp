@@ -23,6 +23,10 @@ export class PlaylistService {
     return this.http.post(environment.apiBaseUrl+'/playlistcreate',playlist);
   }
 
+  updatePlaylist(playlist: Playlist){
+    return this.http.post(environment.apiBaseUrl+'/playlistupdate',playlist);
+  }
+
   getPlaylist(word){
     return this.http.get(environment.apiBaseUrl+'/playlistread/' +word);
   }

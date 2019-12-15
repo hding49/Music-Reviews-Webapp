@@ -45,6 +45,7 @@ router.get('/reviewsearch/:id', review_controller.review_search);
 //playlist part
 router.post('/playlistcreate', playlist_controller.playlist_create);
 router.get('/playlistread/:id', playlist_controller.playlist_search);
+router.post('/playlistupdate', playlist_controller.playlist_update);
 //router.put('/:playlistN/playlistupdate', playlist_controller.playlist_update);
 
 
