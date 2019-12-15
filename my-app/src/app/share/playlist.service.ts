@@ -11,6 +11,8 @@ import { Playlist } from './playlist.model';
 export class PlaylistService {
   selectedPlaylist: Playlist = {
     playlistN: '',
+    owner: '',
+    songs: '',
     
   };
  // noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -21,24 +23,8 @@ export class PlaylistService {
     return this.http.post(environment.apiBaseUrl+'/playlistcreate',playlist);
   }
 
-  getPlaylist(){
-    return this.http.get(environment.apiBaseUrl+'/playlistread').subscribe(data1 => {
-        
-      console.log(data1);
-
-      var child = document.getElementById("playlistRead").children;
-
-             for (var j=child.length-1; j>=0; j--) 
-             {
-                document.getElementById("playlistRead").removeChild(child[j]);
-             }
-
-             for (var i=0; i<data1['length']; i++)
-             {
-                 this.showPlaylist(data1[i]);
-             }
- 
-    });
+  getPlaylist(word){
+    return this.http.get(environment.apiBaseUrl+'/playlistread/' +word);
   }
 
   showPlaylist(obj1)

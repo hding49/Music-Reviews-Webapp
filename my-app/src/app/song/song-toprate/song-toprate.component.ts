@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {SongService} from '../../share/song.service' 
 import { Router } from "@angular/router";
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-song-toprate',
@@ -16,7 +17,7 @@ export class SongToprateComponent implements OnInit {
   searchIF = true;
   detail = new Array;
 
-  constructor(private songService: SongService, private router : Router) { }
+  constructor(private songService: SongService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
   }
@@ -45,6 +46,7 @@ export class SongToprateComponent implements OnInit {
 }
 
 getdetails(i) {
+  
   if (this.detail[i] == true)
   {
     this.detail[i] = false;
@@ -62,6 +64,16 @@ readreviews() {
   this.router.navigateByUrl('/reviewread');
   
   console.log("12");
+}
+
+addToPlayist(object) {
+  
+  this.appcomponent.SongAddedPlaylist = object;
+  console.log(this.appcomponent.SongAddedPlaylist);
+  this.router.navigateByUrl('/playlistcreate');
+  
+  
+  
 }
 
 }

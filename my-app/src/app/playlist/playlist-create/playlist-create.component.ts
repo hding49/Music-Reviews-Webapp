@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 
 import {PlaylistService} from '../../share/playlist.service'
 import { Router } from "@angular/router";
-
+import { AppComponent } from '../../app.component';
 import { Playlist } from '../../share/playlist.model';
 
 @Component({
@@ -13,8 +13,9 @@ import { Playlist } from '../../share/playlist.model';
   providers: [PlaylistService]
 })
 export class PlaylistCreateComponent implements OnInit {
+  playlistObject = new Playlist;
 
-  constructor(private playlistService: PlaylistService, private router : Router) { }
+  constructor(private playlistService: PlaylistService, private router : Router, public appcomponent : AppComponent) { }
 
   ngOnInit() {
   }
@@ -22,11 +23,17 @@ export class PlaylistCreateComponent implements OnInit {
   serverErrorMessages: string;
   showSucessMessage: boolean;
   onSubmit(form : NgForm){
-    this.playlistService.postPlaylist(form.value).subscribe(
+    this.playlistObject.songs = this.appcomponent.SongAddedPlaylist;
+    console.log(this.appcomponent.SongAddedPlaylist);
+    console.log(this.playlistObject.songs);
+    this.playlistObject.playlistN=form.value.playlistN;
+    this.playlistObject.owner=form.value.owner;
+    this.playlistService.postPlaylist(this.playlistObject).subscribe(
       res => {
         //this.showSucessMessage = true;
         //this.songService.setToken(res['token']);
-        this.router.navigateByUrl('/reviewcreate');
+        this.router.navigateByUrl('/playlistread');
+        
         this.resetForm(form);
       },
       err => {
@@ -39,6 +46,8 @@ export class PlaylistCreateComponent implements OnInit {
   resetForm(form: NgForm) {
     this.playlistService.selectedPlaylist = {
       playlistN: '',
+      owner: '',
+    songs: '',
     
     };
     form.resetForm();

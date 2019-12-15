@@ -8,7 +8,7 @@
     <div  *ngIf ="searchIF">
       <ul *ngFor ="let index of this.song; let i = index">
         
-        <li>Name of Song: {{song[i].Title}} 
+        <li id = i>Name of Song: {{song[i].Title}} 
           <button (click) = "getdetails(i)">show all</button>
           <div *ngIf ="detail[i]">
             <p>Artist: {{song[i].Aritist}}</p>
@@ -22,7 +22,7 @@
             </div>
          
           <button (click) = "readreviews()">see review</button>
-          <button >add to playlist</button>       
+          <button id = i, (click) = "addToPlayist(song[i].Title)">add to playlist</button>       
                                  
         </li>
       </ul>

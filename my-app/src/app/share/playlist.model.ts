@@ -1,8 +1,8 @@
 export class Playlist {
    
     playlistN: String;
-   // Artist: String;
-   // Album: String;
+    owner: String;
+    songs: String;
    // Year: String;
    // Comments: String;
    // Reserved: String;

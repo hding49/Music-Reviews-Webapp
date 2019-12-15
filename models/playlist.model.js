@@ -10,6 +10,8 @@ var PlaylistSchema = new Schema({
     //status: {type: String, required: 'Email can\'t be empty', max: 100},
     //description: {type: String, required: 'Email can\'t be empty', max: 100},
     //playlistT: {type: Date},
+    songs: {type: Array},
+    owner: {type: String},
    
     
 });

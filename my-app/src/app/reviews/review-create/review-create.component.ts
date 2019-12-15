@@ -26,6 +26,7 @@ export class ReviewCreateComponent implements OnInit {
   onSubmit(form : NgForm){
     //this.reviewService.selectedReview.songN = this.appcomponent.SongAdded;
         this.reviewObject.songN = this.appcomponent.SongAdded;
+        console.log(this.reviewObject.songN);
         this.reviewObject.comment=form.value.comment;
     this.reviewService.postReview(this.reviewObject).subscribe(
       res => {

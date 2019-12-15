@@ -1,18 +1,41 @@
-
-<form #playlistReadForm="ngForm" (ngSubmit)="playlistRead.valid && onSubmit(playlistRead)">
+<form #playlistReadFormm="ngForm" (ngSubmit)="onSubmit(playlistReadForm)">
        
-    <input type="submit" value="playlistRead" (click) = "ReadPlaylist()">
 
-    <form id="playlistRead"></form>
+  <input type="submit" value="playlistReadForm">
+
+
+  <div  *ngIf ="playlistIF">
+    <ul *ngFor ="let index of this.playlist; let i = index">
+      <!--<ul *ngFor ="let index of this.songs; let j = index">-->
+      <li id = i>Playlist Name: {{playlist[i].playlistN}} 
+        
+        
           
-    </form>
+          <ul *ngFor ="let index of this.playlist[i].songs; let j = index">
+           
+               <p >Song Name: {{playlist[i].songs[j]}}</p >
+
+               <button >remove</button> 
+          
+          </ul>
         
-        <!-- Success message -->
-        <div class="success" *ngIf="showSucessMessage">
-          Saved successfully
-        </div>
+         
+       
+              
+                               
+      </li>
+    
+  </ul>
+   </div>
         
-        <!-- Error message -->
-        <div class="alert" *ngIf="serverErrorMessages">
-          {{serverErrorMessages}}
-        </div>
+  </form>
+      
+      <!-- Success message -->
+      <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>

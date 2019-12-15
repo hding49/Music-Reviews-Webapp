@@ -3,9 +3,9 @@
 <form #playlistCreateForm="ngForm" (ngSubmit)="playlistCreateForm.valid && onSubmit(playlistCreateForm)">
   
     <input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.playlistN" name="playlistN" placeholder="Playlist Name">
-   
+    <input type="text" #Title="ngModel" [(ngModel)]="playlistService.selectedPlaylist.owner" name="owner" placeholder="Owner Name">
        
-    <input type="submit" value="Create Playlist">
+    <input type="submit" value="Add to Playlist">
           
     </form>
         
