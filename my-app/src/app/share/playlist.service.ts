@@ -20,15 +20,15 @@ export class PlaylistService {
   constructor(private http: HttpClient) { }
 
   postPlaylist(playlist: Playlist){
-    return this.http.post(environment.apiBaseUrl+'/playlistcreate',playlist);
+    return this.http.post(environment.apiBaseUrl+'/playlist/secure/playlistcreate',playlist);
   }
 
   updatePlaylist(playlist: Playlist){
-    return this.http.post(environment.apiBaseUrl+'/playlistupdate',playlist);
+    return this.http.post(environment.apiBaseUrl+'/playlist/secure/playlistupdate',playlist);
   }
 
   getPlaylist(word){
-    return this.http.get(environment.apiBaseUrl+'/playlistread/' +word);
+    return this.http.get(environment.apiBaseUrl+'/playlist/open/playlistread/' +word);
   }
 
   showPlaylist(obj1)
@@ -47,25 +47,25 @@ export class PlaylistService {
   
     }
 
-  searchSong(id){
-    return this.http.get(environment.apiBaseUrl+'/songsearch/' +id).subscribe(data => {
+  // searchSong(id){
+  //   return this.http.get(environment.apiBaseUrl+'/songsearch/' +id).subscribe(data => {
         
-      console.log(data);
+  //     console.log(data);
 
-      var child = document.getElementById("info").children;
+  //     var child = document.getElementById("info").children;
 
-             for (var j=child.length-1; j>=0; j--) 
-             {
-                document.getElementById("info").removeChild(child[j]);
-             }
+  //            for (var j=child.length-1; j>=0; j--) 
+  //            {
+  //               document.getElementById("info").removeChild(child[j]);
+  //            }
 
-             for (var i=0; i<data['length']; i++)
-             {
-                 this.show(data[i]);
-             }
+  //            for (var i=0; i<data['length']; i++)
+  //            {
+  //                this.show(data[i]);
+  //            }
  
-    });
-  }
+  //   });
+  // }
 
   show(obj)
   {  

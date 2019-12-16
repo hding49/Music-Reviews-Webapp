@@ -1,22 +1,8 @@
+<div class="wrapper">
+  <div id="formContent">
+    <h2 class="underlineHover"  routerLink="/getsongs"  routerLinkActive="active"> get Songs </h2>
+   <h2 class="underlineHover"  routerLink="/getusers"  routerLinkActive="active">Get Users</h2>
 
-<form #adminLoginForm="ngForm" (ngSubmit)="adminLoginForm.valid && onSubmit(adminLoginForm)">
-  
-  <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email">
-   
-
-    <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password">
-
-
-<input type="submit" value="Admin Sign In">
-        
-  </form>
-      
-      <!-- Success message -->
-      <div class="success" *ngIf="showSucessMessage">
-        Saved successfully
-      </div>
-      
-      <!-- Error message -->
-      <div class="alert" *ngIf="serverErrorMessages">
-        {{serverErrorMessages}}
-      </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

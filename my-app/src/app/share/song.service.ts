@@ -24,13 +24,20 @@ export class SongService {
   constructor(private http: HttpClient) { }
 
   postSong(song: Song){
-    return this.http.post(environment.apiBaseUrl+'/songcreate',song);
+    return this.http.post(environment.apiBaseUrl+'/song/secure/songcreate',song);
   }
 
   TopTen(){
-    return this.http.get(environment.apiBaseUrl+'/songsort');
+    return this.http.get(environment.apiBaseUrl+'/song/open/songsort');
         
-     
+  }
+
+  AdminGetSongs(){
+    return this.http.get(environment.apiBaseUrl+'/admin/secure/getsongs');
+  }
+
+  AdminSetSong(song: Song){
+    return this.http.post(environment.apiBaseUrl+'/admin/secure/setsong',song);
   }
 
   showTop(obj1)
@@ -85,7 +92,7 @@ export class SongService {
 
   searchSong(word){
     //console.log(word);
-    return this.http.get(environment.apiBaseUrl+'/songsearch/' +word);
+    return this.http.get(environment.apiBaseUrl+'/song/open/songsearch/' +word);
     //console.log(word);
   }
 

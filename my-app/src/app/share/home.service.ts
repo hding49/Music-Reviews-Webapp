@@ -18,23 +18,34 @@ export class HomeService {
   constructor(private http: HttpClient) { }
 
   postUser(user: Home){
-    return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/user/secure/register',user,this.noAuthHeader);
   }
 
+  AdminGetUsers(){
+    return this.http.get(environment.apiBaseUrl+'/admin/secure/getusers');
+  }
+
+  AdminSetUser(user: Home){
+    return this.http.post(environment.apiBaseUrl+'/admin/secure/settype',user);
+  }
+
+  
+  
+
   postGoogle(user: Home){
-    return this.http.post(environment.apiBaseUrl+'/googlelogin',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/user/secure/googlelogin',user,this.noAuthHeader);
   }
   postAdmin(user: Home){
-    return this.http.post(environment.apiBaseUrl+'/adminlogin',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/user/secure/adminlogin',user,this.noAuthHeader);
   }
 
   login(authCredentials) {
     
-    return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl + '/user/secure/authenticate', authCredentials,this.noAuthHeader);
   }
 
   getUserProfile() {
-    return this.http.get(environment.apiBaseUrl + '/userProfile');
+    return this.http.get(environment.apiBaseUrl + '/user/open/userProfile');
   }
 
   //activation() {

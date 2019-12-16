@@ -16,6 +16,8 @@ import { ReviewCreateComponent } from './reviews/review-create/review-create.com
 import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
 import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
+import { AdminSongComponent } from './home/admin/admin-song/admin-song.component';
+import { AdminUserComponent } from './home/admin/admin-user/admin-user.component';
 
 export const appRoutes: Routes = [
     {
@@ -73,6 +75,16 @@ export const appRoutes: Routes = [
     {
         path: 'playlistread', component: PlaylistComponent,
         children: [{ path: '', component: PlaylistReadComponent,canActivate:[AuthGuard] }]
+       
+    },
+    {
+        path: 'getsongs', component: AdminComponent,
+        children: [{ path: '', component: AdminSongComponent }]
+       
+    },
+    {
+        path: 'getusers', component: AdminComponent,
+        children: [{ path: '', component: AdminUserComponent }]
        
     }
 

@@ -1,0 +1,46 @@
+
+<form #songTopTenForm="ngForm" (ngSubmit)="songTopTenForm.valid && onSubmit(songTopTenForm)">
+       
+    <input type="submit" value="Get Users" >
+
+    <form id="topten"></form>
+
+    <div  *ngIf ="searchIF">
+      <ul *ngFor ="let index of this.song; let i = index">
+        
+        <li >Name of Song: {{song[i].Title}} 
+          <button (click) = "getdetails(i)">show all</button>
+          <div *ngIf ="detail[i]">
+            <p>Artist: {{song[i].Artist}}</p>
+            <p>Album: {{song[i].Album}}</p>
+            <p>Year: {{song[i].year}}</p>
+            <p>Comments: {{song[i].Comments}}</p>
+            <p>Reserved: {{song[i].Reserved}}</p>  
+            <p>Track: {{song[i].Track}}</p>
+            <p>Genre: {{song[i].Genre}}</p>
+            <p>Average Rating: {{song[i].AvRate}}</p>
+            <p>Number of Reviews: {{song[i].NumRate}}</p>
+            <!--<p>Most Recent Reviews: {{song[i].MostRecent}}</p>-->
+        
+            </div>
+         
+          <button (click) = "readreviews()">see review</button>
+          <button *ngIf ="judge" (click) = "addreviews(song[i].Title)">add review</button>
+          <button *ngIf ="judge" (click) = "addToPlayist(song[i].Title)">add to playlist</button>       
+                                 
+        </li>
+      </ul>
+ 
+     </div>
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Saved successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

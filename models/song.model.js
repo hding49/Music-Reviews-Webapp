@@ -18,6 +18,8 @@ var SongSchema = new Schema({
     //Top: {type: String},
     NumRate: {type: Number},
     //MostRecent: {type: String,  max: 100},
+    type: {type: String,  max: 100}
+
     
 });
 //ProductSchema.plugin(uniqueValidator);

@@ -22,11 +22,11 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   postReview(review: Review){
-    return this.http.post(environment.apiBaseUrl+'/reviewcreate',review);
+    return this.http.post(environment.apiBaseUrl+'/review/secure/reviewcreate',review);
   }
 
   searchReview(id){
-    return this.http.get(environment.apiBaseUrl+'/reviewsearch/' +id).subscribe(data => {
+    return this.http.get(environment.apiBaseUrl+'/review/open/reviewsearch/' +id).subscribe(data => {
         
       console.log(data);
 

@@ -31,6 +31,8 @@ import { ReviewUpdateComponent } from './reviews/review-update/review-update.com
 import { ReviewReadComponent } from './reviews/review-read/review-read.component';
 import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-create.component';
 import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
+import { AdminUserComponent } from './home/admin/admin-user/admin-user.component';
+import { AdminSongComponent } from './home/admin/admin-song/admin-song.component';
 //import { AddSongPlaylistComponent } from './playlist/add-song-playlist/add-song-playlist.component';
 const config = new AuthServiceConfig([
 {
@@ -64,6 +66,8 @@ export function provideConfig(){
     ReviewReadComponent,
     PlaylistCreateComponent,
     PlaylistReadComponent,
+    AdminUserComponent,
+    AdminSongComponent,
     //AddSongPlaylistComponent
   ],
   imports: [

@@ -14,6 +14,8 @@ exports.song_create = function (req, res) {
             song.Genre = req.body.Genre;
             song.AvRate = "0";
             song.NumRate = 0;
+            song.type = "active";
+            //song.type = req.body.type;
             //song.MostRecent = " ";
           
         
