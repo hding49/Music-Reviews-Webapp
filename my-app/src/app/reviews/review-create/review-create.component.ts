@@ -26,8 +26,10 @@ export class ReviewCreateComponent implements OnInit {
   onSubmit(form : NgForm){
     //this.reviewService.selectedReview.songN = this.appcomponent.SongAdded;
         this.reviewObject.songN = this.appcomponent.SongAdded;
-        console.log(this.reviewObject.songN);
         this.reviewObject.comment=form.value.comment;
+        this.reviewObject.rating=form.value.Rating;
+        console.log(this.reviewObject);
+        this.reviewObject.owner = this.appcomponent.ownerPlaylist;
     this.reviewService.postReview(this.reviewObject).subscribe(
       res => {
         
@@ -49,6 +51,8 @@ export class ReviewCreateComponent implements OnInit {
  
     songN: '',
     comment: '',
+    rating: '',
+    owner: '',
   
     };
     form.resetForm();

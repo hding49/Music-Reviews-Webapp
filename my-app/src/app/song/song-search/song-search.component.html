@@ -14,17 +14,20 @@
           <li>Name of Song: {{song[i].Title}} 
             <button (click) = "getdetails(i)">show all</button>
             <div *ngIf ="detail[i]">
-              <p>Artist: {{song[i].Aritist}}</p>
+              <p>Artist: {{song[i].Artist}}</p>
               <p>Album: {{song[i].Album}}</p>
               <p>Year: {{song[i].Year}}</p>
               <p>Comments: {{song[i].Comments}}</p>
               <p>Reserved: {{song[i].Reserved}}</p>  
               <p>Track: {{song[i].Track}}</p>
               <p>Genre: {{song[i].Genre}}</p>
+              <p>Average Rating: {{song[i].AvRate}}</p>
+              <p>Number of Reviews: {{song[i].NumRate}}</p>
           
               </div>
            
             <button (click) = "readreviews()">see review</button>
+            <button *ngIf ="judge" (click) = "addreviews(song[i].Title)">add review</button>
             <button *ngIf ="judge" (click) = "addToPlayist(song[i].Title)">add to playlist</button>         
                                    
           </li>

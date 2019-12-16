@@ -13,7 +13,8 @@ exports.song_create = function (req, res) {
             song.Track = req.body.Track;
             song.Genre = req.body.Genre;
             song.AvRate = "0";
-           // Top:"0",
+            song.NumRate = 0;
+          
         
    
 
@@ -78,36 +79,6 @@ module.exports.song_search = (req, res, next) => {
     })
 }
 
-module.exports.song_sort = (req, res, next) => {
-var arr = new Array();
-console.log(1);
-Song.find().sort({AvRate: -1}).limit(10).then((song) => {
-    console.log(2);
-    for (var i = 0; i < song.length; i++) { 
-    var searchSong = {
-        Top: i+1,    
-        Title: song[i].Title,
-            Artist: song[i].Artist,
-            Album: song[i].Album,
-            Year: song[i].Year,
-            Comments: song[i].Comments,
-            Reserved: song[i].Reserved,
-            Track: song[i].Track,
-            Genre: song[i].Genre,
-            AvRate: song[i].AvRate
-
-    };
-       
-       
-    arr.push(searchSong); 
-    console.log(3);
-   } 
-    //console.log(arr);
-    return res.status(200).send(arr);
-})
-
-
-}
 
 module.exports.song_top10 = (req, res, next) => {
     var array = new Array();
@@ -125,7 +96,8 @@ module.exports.song_top10 = (req, res, next) => {
                     Reserved: song[i].Reserved,
                     Track: song[i].Track,
                     Genre: song[i].Genre,
-                    AvRate: song[i].AvRate
+                    AvRate: song[i].AvRate,
+                    NumRate: song[i].NumRate
             };
             array.push(searchSong);
         }

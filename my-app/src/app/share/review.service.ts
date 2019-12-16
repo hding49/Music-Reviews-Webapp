@@ -12,6 +12,8 @@ export class ReviewService {
   selectedReview: Review = {
     comment: '',
     songN: '',
+    rating: '',
+    owner: '',
     
    
   };
@@ -54,6 +56,16 @@ export class ReviewService {
       var node2 =document.createTextNode("comment:" + obj.comment);
       ele2.appendChild(node2);
       document.getElementById("review").appendChild(ele2);
+
+      var ele3 = document.createElement("p")
+      var node3 =document.createTextNode("rating:" + obj.rating);
+      ele3.appendChild(node3);
+      document.getElementById("review").appendChild(ele3);
+
+      var ele5 = document.createElement("p")
+      var node5 =document.createTextNode("reviewer:" + obj.owner);
+      ele5.appendChild(node5);
+      document.getElementById("review").appendChild(ele5);
   
       var ele4 = document.createElement("p")
       var node4 =document.createTextNode("***********");

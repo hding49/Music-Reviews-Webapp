@@ -24,12 +24,7 @@ export class SongSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  SearchSong() {
-    
-    var word = document.getElementById("search")["value"];
-    this.songService.searchSong(word);
-    //alert(word);
-  }
+ 
 
   onSubmit(form: NgForm) {
     var word = document.getElementById("search")["value"];
@@ -37,7 +32,8 @@ export class SongSearchComponent implements OnInit {
       res => {
         
         this.song = res;
-        console.log(this.song);
+        //console.log(this.song);
+      
       },
       err => { 
         console.log(err);
@@ -65,6 +61,11 @@ readreviews() {
   this.router.navigateByUrl('/reviewread');
   
   console.log("12");
+}
+
+addreviews(name) {
+  this.router.navigateByUrl('/reviewcreate');
+  this.appcomponent.SongAdded = name;
 }
 
 addToPlayist(object) {

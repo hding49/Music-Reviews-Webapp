@@ -3,41 +3,37 @@ const Review = require('../models/review.model');
 const Song = require('../models/song.model');
 var song = new Song();
 
-exports.review_create = function (req, res) {
+exports.review_create = async function (req, res) {
     var review = new Review(
         {
             comment: req.body.comment,
             songN: req.body.songN,
             rating: req.body.rating,
-           // owner: req.body.owner,
+            owner: req.body.owner,
             time: Date(),
+            NUMrating :0,
         
         
         }
     );
+    review.save();
 
-    review.save((err, doc) => {
-       if (!err){
-        res.send(doc);
-               }
-               else if (err){
-                
-                       return next(err);
-               }
-           });
+    await Song.findOne({Title:req.body.songN},(err,song)=>{
 
-
-
-    song.findOne({Title:req.params.title},(err,song)=>{
-
-       song.update({$set:{active:true}}).then((updatedDoc)=>{
-            
-       });
-
+        test1 = String(parseInt(song.NumRate) + 1);
+        test2 = String((parseInt(song.AvRate) + parseInt(review.rating))/parseInt(test1));
+        console.log(test1);
+        console.log(test2);
     });
 
+      await Song.findOneAndUpdate({Title:req.body.songN}, {$set: {NumRate:test1, AvRate:test2} } ).then((updatedDoc)=>{
+            console.log("ok");
+            res.send(updatedDoc);
+       });
 
-};
+       
+
+}
 
 exports.review_read = function (req, res) {
     Review.find(function (err, review) {
@@ -78,4 +74,20 @@ exports.song_delete = function (req, res) {
     })
 };
 
-
+module.exports.review_mostrecent = (req, res, next) => {
+    var word = req.params.songname;
+  
+    var _filter = {
+        $or: [
+            { songN: { $regex: word, $options: '$i' } },
+         
+        ]
+    }
+    
+    Review.find(_filter, (err, review) => {
+        if (!review)
+            return res.status(404).json({ status: false, message: 'No search result found.' });
+        else
+            return res.status(200).send(review);
+    }).sort({time: -1});
+}

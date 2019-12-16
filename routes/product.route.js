@@ -41,6 +41,7 @@ router.get('/songsort', song_controller.song_top10);
 router.post('/reviewcreate', review_controller.review_create);
 router.get('/reviewread', review_controller.review_read);
 router.get('/reviewsearch/:id', review_controller.review_search);
+router.get('/mostrecent/:songname', review_controller.review_mostrecent);
 
 //playlist part
 router.post('/playlistcreate', playlist_controller.playlist_create);

@@ -16,7 +16,7 @@ var SongSchema = new Schema({
 
     AvRate: {type: String, default: "0"},
     //Top: {type: String},
-    //NumRate: {type: String,}
+    NumRate: {type: Number},
     
 });
 //ProductSchema.plugin(uniqueValidator);

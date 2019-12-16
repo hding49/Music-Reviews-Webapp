@@ -31,6 +31,7 @@ export class SongToprateComponent implements OnInit {
         
         this.song = res;
         console.log(this.song);
+        
       },
       err => { 
         console.log(err);
@@ -59,6 +60,11 @@ readreviews() {
   this.router.navigateByUrl('/reviewread');
   
   console.log("12");
+}
+
+addreviews(name) {
+  this.router.navigateByUrl('/reviewcreate');
+  this.appcomponent.SongAdded = name;
 }
 
 addToPlayist(object) {

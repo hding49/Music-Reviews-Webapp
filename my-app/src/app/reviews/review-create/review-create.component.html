@@ -7,7 +7,7 @@
    
       <h2 routerLink="/reviewcreate"  routerLinkActive="active"> create review </h2>
       <div>
-        Rating:  <select id = "sel" onchange="ChangeLanguage()" >
+        Rating:  <select id = "sel" [(ngModel)]="reviewService.selectedReview.Rating" name="Rating" >
           <option value = "1">1</option>
           <option value = "2">2</option>
           <option value = "3">3</option>

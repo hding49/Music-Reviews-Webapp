@@ -2,10 +2,11 @@ export class Review {
    
     comment: String;
     songN: String;
+    owner: String;
     //Time: Date;
    //// Year: String;
    
 
-    //AvRate: {type: String,}
+    rating:  String;
     //NumRate: {type: String,}
 }
