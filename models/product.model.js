@@ -10,6 +10,7 @@ var ProductSchema = new Schema({
     password: {type: String, required: 'Password can\'t be empty', minlength: [4, 'Password must be atleast 4 character long'], max: 100},
     active: {type: Boolean, required: true, default: false},
     temporarytoken: {type: String},
+    type :{type: String},
     
 });
 //ProductSchema.plugin(uniqueValidator);

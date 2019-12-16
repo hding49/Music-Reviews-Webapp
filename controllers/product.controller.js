@@ -16,6 +16,7 @@ exports.product_create = function (req, res) {
             password: req.body.password,
             //loan: req.body.loan,
             //quantity:req.body.quantity,
+            type: "normal",
         }
     );
 
@@ -71,6 +72,7 @@ module.exports.register = (req, res, next) => {
     var user = new User();
     user.email = req.body.email;
     user.password = req.body.password;
+    user.type = "normal";
     user.temporarytoken = user.generateJwt();
     user.save((err, doc) => {
  //if (err){ 
@@ -124,7 +126,7 @@ module.exports.userProfile = (req, res, next) =>{
             if (!user)
                 return res.status(404).json({ status: false, message: 'User record not found.' });
             else
-                return res.status(200).json({ status: true, user : _.pick(user,['email']) });
+                return res.status(200).json({ status: true, user : _.pick(user,['email','type']) });
         }
     );
 }

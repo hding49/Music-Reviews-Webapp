@@ -16,8 +16,10 @@ export class UserProfileComponent implements OnInit {
     this.homeService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
+        //this.userDetails = res;
         this.appcomponent.logged = true;
         console.log(this.userDetails.email);
+        console.log(this.userDetails.type);
         this.appcomponent.ownerPlaylist = this.userDetails.email;
         console.log(this.appcomponent.ownerPlaylist);
       },
