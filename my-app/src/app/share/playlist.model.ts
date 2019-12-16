@@ -7,7 +7,7 @@ export class Playlist {
    // Comments: String;
    // Reserved: String;
    // Track: String;
-    //Genre: String;
+   description: String;
 
     //AvRate: {type: String,}
     //NumRate: {type: String,}

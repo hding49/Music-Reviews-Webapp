@@ -33,6 +33,7 @@ import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-cre
 import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
 import { AdminUserComponent } from './home/admin/admin-user/admin-user.component';
 import { AdminSongComponent } from './home/admin/admin-song/admin-song.component';
+import { AllPlaylistComponent } from './playlist/all-playlist/all-playlist.component';
 //import { AddSongPlaylistComponent } from './playlist/add-song-playlist/add-song-playlist.component';
 const config = new AuthServiceConfig([
 {
@@ -68,6 +69,7 @@ export function provideConfig(){
     PlaylistReadComponent,
     AdminUserComponent,
     AdminSongComponent,
+    AllPlaylistComponent,
     //AddSongPlaylistComponent
   ],
   imports: [

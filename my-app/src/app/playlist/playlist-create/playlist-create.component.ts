@@ -28,8 +28,10 @@ export class PlaylistCreateComponent implements OnInit {
     //console.log(this.playlistObject.songs);
     this.playlistObject.playlistN=form.value.playlistN;
     this.playlistObject.owner=this.appcomponent.ownerPlaylist;
+    this.playlistObject.description=form.value.description;
+    //this.playlistObject.
     console.log(this.playlistObject.owner);
-    console.log(this.appcomponent.ownerPlaylist);
+    console.log(this.playlistObject.description);
     this.playlistService.postPlaylist(this.playlistObject).subscribe(
       res => {
         //this.showSucessMessage = true;
@@ -50,6 +52,7 @@ export class PlaylistCreateComponent implements OnInit {
       playlistN: '',
       owner: '',
     songs: '',
+    description: '',
     
     };
     form.resetForm();

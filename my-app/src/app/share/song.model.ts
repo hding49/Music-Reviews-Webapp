@@ -8,6 +8,7 @@ export class Song {
     Reserved: String;
     Track: String;
     Genre: String;
+    type: String;
 
     //AvRate: {type: String,}
     //NumRate: {type: String,}

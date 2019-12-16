@@ -45,6 +45,30 @@ export class ReviewService {
     });
   }
 
+  sortReview(id){
+    return this.http.get(environment.apiBaseUrl+'/review/open/mostrecent/' +id);
+  }
+
+  // sortReview(id){
+  //   return this.http.get(environment.apiBaseUrl+'/review/open/mostrecent/' +id).subscribe(data => {
+        
+  //     console.log(data);
+
+  //     var child = document.getElementById("review").children;
+
+  //            for (var j=child.length-1; j>=0; j--) 
+  //            {
+  //               document.getElementById("review").removeChild(child[j]);
+  //            }
+
+  //            for (var i=0; i<data['length']; i++)
+  //            {
+  //                this.show(data[i]);
+  //            }
+ 
+  //   });
+  // }
+
   show(obj)
   {  
       var ele1 = document.createElement("p")
@@ -66,6 +90,11 @@ export class ReviewService {
       var node5 =document.createTextNode("reviewer:" + obj.owner);
       ele5.appendChild(node5);
       document.getElementById("review").appendChild(ele5);
+
+      var ele6 = document.createElement("p")
+      var node6 =document.createTextNode("reviewer:" + obj.time);
+      ele6.appendChild(node6);
+      document.getElementById("review").appendChild(ele6);
   
       var ele4 = document.createElement("p")
       var node4 =document.createTextNode("***********");

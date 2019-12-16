@@ -11,6 +11,7 @@ var ProductSchema = new Schema({
     active: {type: Boolean, required: true, default: false},
     temporarytoken: {type: String},
     type :{type: String},
+    status :{type: String},
     
 });
 //ProductSchema.plugin(uniqueValidator);

@@ -23,10 +23,11 @@
               <p>Genre: {{song[i].Genre}}</p>
               <p>Average Rating: {{song[i].AvRate}}</p>
               <p>Number of Reviews: {{song[i].NumRate}}</p>
+              <p>Type: {{song[i].type}}</p>
           
               </div>
            
-            <button (click) = "readreviews()">see review</button>
+            <button (click) = "readreviews(song[i].Title)">see review</button>
             <button *ngIf ="judge" (click) = "addreviews(song[i].Title)">add review</button>
             <button *ngIf ="judge" (click) = "addToPlayist(song[i].Title)">add to playlist</button>         
                                    

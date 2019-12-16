@@ -30,7 +30,7 @@ export class AdminSongComponent implements OnInit {
       res => {
         
         this.song = res;
-        console.log(this.song);
+       
         
       },
       err => { 
@@ -53,19 +53,30 @@ getdetails(i) {
     this.detail[i] = true;
   }
   
-  console.log("1");
+  
 }
 
 setSongsType(title, Songtype) {
   this.songObject.Title =title;
-  //this.songObject =Songtype;
+
+  if (Songtype == "active")
+  {
+    this.songObject.type ="inactive";
+  }
+
+  else
+  {
+    this.songObject.type ="active";
+  }
+
+  
   this.songService.AdminSetSong(this.songObject).subscribe(
     res => {
       
-    
+      this.router.navigateByUrl('/getsongs');
     },
     err => {
-      
+      this.serverErrorMessages = err.error.message;
     }
   );
   

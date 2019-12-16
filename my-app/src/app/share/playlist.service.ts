@@ -13,6 +13,7 @@ export class PlaylistService {
     playlistN: '',
     owner: '',
     songs: '',
+    description: '',
     
   };
  // noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };

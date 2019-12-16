@@ -11,4 +11,6 @@ export class AppComponent {
   public SongAddedPlaylist : String;
   public ownerPlaylist : String;
   public logged : boolean;
+  public SongAddedReview : String;
+  public god: boolean;
 }

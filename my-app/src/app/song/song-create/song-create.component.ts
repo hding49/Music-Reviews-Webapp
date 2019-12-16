@@ -49,7 +49,8 @@ export class SongCreateComponent implements OnInit {
     Comments: '',
     Reserved: '',
     Track: '',
-    Genre: ''
+    Genre: '',
+    type: ''
     };
     form.resetForm();
     this.serverErrorMessages = '';

@@ -9,24 +9,25 @@ exports.test = function (req, res) {
     res.send('Greetings from the Test controller!');
 };
 
-exports.product_create = function (req, res) {
-    var product = new Product(
-        {
-            email: req.body.email,
-            password: req.body.password,
-            //loan: req.body.loan,
-            //quantity:req.body.quantity,
-            type: "normal",
-        }
-    );
+// exports.product_create = function (req, res) {
+//     var product = new Product(
+//         {
+//             email: req.body.email,
+//             password: req.body.password,
+//             //loan: req.body.loan,
+//             //quantity:req.body.quantity,
+//             type: "normal",
+//             status: "activated",
+//         }
+//     );
 
-    product.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.send('Product Created successfully')
-    })
-};
+//     product.save(function (err) {
+//         if (err) {
+//             return next(err);
+//         }
+//         res.send('Product Created successfully')
+//     })
+// };
 
 exports.product_details = function (req, res) {
     Product.findById(req.params.id, function (err, product) {
@@ -73,6 +74,7 @@ module.exports.register = (req, res, next) => {
     user.email = req.body.email;
     user.password = req.body.password;
     user.type = "normal";
+    user.status= "activated",
     user.temporarytoken = user.generateJwt();
     user.save((err, doc) => {
  //if (err){ 
@@ -84,10 +86,10 @@ module.exports.register = (req, res, next) => {
                 to: user.email,
                 subject: 'Localhost Activation Link',
                 text: 'Hello, thank you for registering at localhost.com.',
-                html: 'Hello<strong> ' + user.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/products/activate/' + user.email + '">http://localhost:8080/activate</a>'
+                html: 'Hello<strong> ' + user.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/products/user/open/activate/' + user.email + '">http://localhost:8080/activate</a>'
             };
             // Function to send e-mail to the user
-            //http://localhost:8080/products/activate/
+        
             client.sendMail(email, function(err, info) {
                 //console.log('1');
                 if (err) console.log(err); // If error with sending e-mail, log to console/terminal

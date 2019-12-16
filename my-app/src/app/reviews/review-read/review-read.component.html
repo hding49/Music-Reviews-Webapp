@@ -1,22 +1,36 @@
 
-
-<form >
+<form #reviewReadForm="ngForm" (ngSubmit)="reviewReadForm.valid && onSubmit(reviewReadForm)">
   
-    <input id="reviewsearch" type="text"  name="songN" placeholder="song name">
+  <input type="submit" value="Read reviews" >
 
-       
-    <input type="submit" value="Song review" (click) = "SearchReview()">
-    <br/>
-    <form id="review"></form>
-          
-    </form>
+  <div  *ngIf ="reviewIF">
+      <ul *ngFor ="let index of this.review; let i = index">
         
-        <!-- Success message -->
-        <div class="success" *ngIf="showSucessMessage">
-          Saved successfully
-        </div>
+      
+     <li>
+          <p>Song Name: {{review[i].songN}}</p>  
+            <p>Comment: {{review[i].comment}}</p>
+            <p>Rating: {{review[i].rating}}</p>
+            <p>Owner: {{review[i].owner}}</p>
+            <p>Time: {{review[i].time}}</p>
+           
+            <br/><br/>
         
-        <!-- Error message -->
-        <div class="alert" *ngIf="serverErrorMessages">
-          {{serverErrorMessages}}
-        </div>
+            
+          </li>                      
+      
+      </ul>
+ 
+     </div>
+
+  </form>
+      
+      <!-- Success message -->
+      <div class="success" *ngIf="showSucessMessage">
+        Saved successfully
+      </div>
+      
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>

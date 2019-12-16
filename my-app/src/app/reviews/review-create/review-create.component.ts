@@ -3,6 +3,7 @@ import {ReviewService} from '../../share/review.service'
 import { NgForm } from "@angular/forms";
 import { AppComponent } from '../../app.component';
 import { Review } from './../../share/review.model';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-review-create',
@@ -14,7 +15,7 @@ export class ReviewCreateComponent implements OnInit {
   
   reviewObject = new Review;
 
-  constructor(private reviewService: ReviewService, private appcomponent : AppComponent) { }
+  constructor(private reviewService: ReviewService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
     
@@ -36,7 +37,7 @@ export class ReviewCreateComponent implements OnInit {
     //alert(this.reviewService.selectedReview.songN);
         this.showSucessMessage = true;
         //this.songService.setToken(res['token']);
-        //this.router.navigateByUrl('/songcreate');
+        this.router.navigateByUrl('/userprofile');
         this.resetForm(form);
       },
       err => {

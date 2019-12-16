@@ -56,10 +56,10 @@ getdetails(i) {
   console.log("1");
 }
 
-readreviews() {
+readreviews(object1) {
   this.router.navigateByUrl('/reviewread');
-  
-  console.log("12");
+  this.appcomponent.SongAddedReview = object1;
+  //console.log(this.appcomponent.SongAddedReview);
 }
 
 addreviews(name) {

@@ -22,42 +22,42 @@ export class AdminComponent implements OnInit {
   };
 
   ngOnInit() {
-    if(this.homeService.isLoggedIn())
-    this.router.navigateByUrl('/userprofile');
+    // if(this.homeService.isLoggedIn())
+    // this.router.navigateByUrl('/userprofile');
   }
 
-  adminlogin(){
+//   adminlogin(){
 
   
     
-    this.admin.email = "site manager";
-    this.admin.password = "western2019";
+//     this.admin.email = "site manager";
+//     this.admin.password = "western2019";
     
-    this.homeService.postAdmin(this.admin).subscribe(  
-      res => {
-        this.homeService.setToken(res['token']);
-        this.router.navigateByUrl('/userprofile');
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    );
+//     this.homeService.postAdmin(this.admin).subscribe(  
+//       res => {
+//         this.homeService.setToken(res['token']);
+//         this.router.navigateByUrl('/userprofile');
+//       },
+//       err => {
+//         this.serverErrorMessages = err.error.message;
+//       }
+//     );
 
  
-}
+// }
 
-onSubmit(form : NgForm){
-  //this.admin.email = "site manager";
-  //this.admin.password = "western2019";
-  this.homeService.postAdmin(form.value).subscribe(  
-    res => {
-      this.homeService.setToken(res['token']);
-      this.router.navigateByUrl('/userprofile');
-    },
-    err => {
-      this.serverErrorMessages = err.error.message;
-    }
-  );
-}
+// onSubmit(form : NgForm){
+//   //this.admin.email = "site manager";
+//   //this.admin.password = "western2019";
+//   this.homeService.postAdmin(form.value).subscribe(  
+//     res => {
+//       this.homeService.setToken(res['token']);
+//       this.router.navigateByUrl('/userprofile');
+//     },
+//     err => {
+//       this.serverErrorMessages = err.error.message;
+//     }
+//   );
+// }
 
 }

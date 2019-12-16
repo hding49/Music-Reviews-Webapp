@@ -17,9 +17,6 @@ exports.song_create = function (req, res) {
             song.type = "active";
             //song.type = req.body.type;
             //song.MostRecent = " ";
-          
-        
-   
 
     song.save((err, doc) => {
        if (!err){
@@ -62,6 +59,7 @@ module.exports.song_search = (req, res, next) => {
     var word = req.params.id;
     word = word.replace(/\s/g, "");
     var _filter = {
+      $and: [{
         $or: [
             { Title: { $regex: word, $options: '$i' } },
             { Artist: { $regex: word, $options: '$i' } },
@@ -72,6 +70,7 @@ module.exports.song_search = (req, res, next) => {
             { Track: { $regex: word, $options: '$i' } },
             { Genre: { $regex: word, $options: '$i' } }
         ]
+      },{type: {$ne: "inactive"}}]
     }
     
     Song.find(_filter, (err, song) => {
@@ -86,7 +85,7 @@ module.exports.song_search = (req, res, next) => {
 module.exports.song_top10 = (req, res, next) => {
     var array = new Array();
     //var song = new Song();
-    Song.find().sort({AvRate: -1}).limit(10).then((song) => {
+    Song.find({type: {$ne: "inactive"}}).sort({AvRate: -1}).limit(10).then((song) => {
         //console.log(song);
         for (var i = 0; i < song.length; i++) {
             var searchSong = {
@@ -100,7 +99,8 @@ module.exports.song_top10 = (req, res, next) => {
                     Track: song[i].Track,
                     Genre: song[i].Genre,
                     AvRate: song[i].AvRate,
-                    NumRate: song[i].NumRate
+                    NumRate: song[i].NumRate,
+                    type: song[i].type
             };
             array.push(searchSong);
         }

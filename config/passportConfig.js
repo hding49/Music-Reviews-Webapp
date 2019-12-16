@@ -17,6 +17,8 @@ passport.use(
                     // wrong password
                     else if (!user.verifyPassword(password))
                         return done(null, false, { message: 'Wrong password.' });
+                    else if (user.status == "deactivated")
+                        return done(null, false, { message: 'Account is deactivated and please contact manager.' });
                     else if (user.active == false)
                         return done(null, false, { message: 'Email is not actived.' });
                     // authentication succeeded

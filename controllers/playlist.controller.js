@@ -13,6 +13,7 @@ exports.playlist_create = async function (req, res) {
            // time: req.body.time,
            
            songs: songs, 
+           description: req.body.description,
         
         
         }
@@ -148,7 +149,7 @@ await Playlist.findOne({playlistN:req.body.playlistN},(err,playlist)=>{
 
 })
 
-Playlist.findOneAndUpdate( {playlistN:req.body.playlistN}, {$set: {songs:songs}} ).then((updatedDoc)=>{
+Playlist.findOneAndUpdate( {playlistN:req.body.playlistN}, {$set: {songs:songs, description:req.body.description}} ).then((updatedDoc)=>{
     res.send(updatedDoc);          
 });
 

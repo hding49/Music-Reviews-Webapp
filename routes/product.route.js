@@ -10,11 +10,11 @@ const admin_controller = require('../controllers/admin.controller');
 
 
 // a simple test url to check that all of our files are communicating correctly.
-//user
+
 router.get('/user/open/test', product_controller.test);
 
 
-router.post('/user/open/create', product_controller.product_create);
+//router.post('/user/open/create', product_controller.product_create);
 
 router.get('/user/open/read', product_controller.product_read);
 
@@ -24,6 +24,7 @@ router.put('/user/open/:id/update', product_controller.product_update);
 
 router.delete('/user/open/:id/delete', product_controller.product_delete);
 
+//user
 const jwtHelper = require('../config/jwtHelper');
 
 router.post('/user/secure/register', product_controller.register);
@@ -41,9 +42,9 @@ router.get('/song/open/songsort', song_controller.song_top10);
 
 //review part
 router.post('/review/secure/reviewcreate', review_controller.review_create);
-router.get('/review/open/reviewread', review_controller.review_read);
+//router.get('/review/open/reviewread', review_controller.review_read);
 router.get('/review/open/reviewsearch/:id', review_controller.review_search);
-//router.get('/review/open/mostrecent/:songname', review_controller.review_mostrecent);
+router.get('/review/open/mostrecent/:songname', review_controller.review_mostrecent);
 
 //playlist part
 router.post('/playlist/secure/playlistcreate', playlist_controller.playlist_create);
@@ -56,6 +57,7 @@ router.post('/admin/secure/settype', admin_controller.setType);
 router.post('/admin/secure/setsong', admin_controller.setSong);
 router.get('/admin/secure/getsongs', admin_controller.getSongs);
 router.get('/admin/secure/getusers', admin_controller.getUsers);
+router.post('/admin/secure/setstatus', admin_controller.setStatus);
 
 
 module.exports = router;

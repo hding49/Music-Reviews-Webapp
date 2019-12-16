@@ -12,6 +12,7 @@ var PlaylistSchema = new Schema({
     //playlistT: {type: Date},
     songs: {type: Array},
     owner: {type: String},
+    description: {type: String},
    
     
 });

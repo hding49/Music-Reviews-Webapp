@@ -3,7 +3,8 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import {HomeService} from '../../share/home.service'
 import {AuthService, SocialUser, GoogleLoginProvider} from 'ng4-social-login';
-import { Home } from '../../share/home.model'
+import { Home } from '../../share/home.model';
+import { AppComponent } from '../../app.component';
 //import {AuthService, SocialUser, GoogleLoginProvider} from 'angularx-social-login';
 //import {AuthService, SocialUser, GoogleLoginProvider} from 'angular5-social-login';
 @Component({
@@ -12,14 +13,14 @@ import { Home } from '../../share/home.model'
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
-  
+  userDetails;
   public user: any = SocialUser;
   googleuser = new Home;
   googleuser1 = new Home;
   admin = new Home;
   //public googleuser : any = Home;
 
-  constructor(private homeService: HomeService, private router : Router, private socialAuthService : AuthService) { }
+  constructor(private homeService: HomeService, private router : Router, private socialAuthService : AuthService, private appcomponent : AppComponent) { }
 
 googlelogin(){
 
@@ -70,6 +71,26 @@ googlelogin(){
       res => {
         this.homeService.setToken(res['token']);
         this.router.navigateByUrl('/userprofile');
+        
+        this.homeService.getUserProfile().subscribe(
+          res => {
+            this.userDetails = res['user'];
+            if (this.userDetails.type == "admin")
+            {
+                 this.appcomponent.god = true;
+            }
+            else
+            {
+              this.appcomponent.god = false;
+            }
+          },
+          err => { 
+            console.log(err);
+            
+          }
+        );
+
+
       },
       err => {
         this.serverErrorMessages = err.error.message;

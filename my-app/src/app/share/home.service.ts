@@ -11,7 +11,9 @@ import { Home } from './home.model';
 export class HomeService {
   selectedUser: Home = {
     email: '',
-    password: ''
+    password: '',
+    type: '',
+    status: ''
   };
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 
@@ -29,8 +31,9 @@ export class HomeService {
     return this.http.post(environment.apiBaseUrl+'/admin/secure/settype',user);
   }
 
-  
-  
+  AdminSetUserStatus(user: Home){
+    return this.http.post(environment.apiBaseUrl+'/admin/secure/setstatus',user);
+  }
 
   postGoogle(user: Home){
     return this.http.post(environment.apiBaseUrl+'/user/secure/googlelogin',user,this.noAuthHeader);
@@ -48,9 +51,7 @@ export class HomeService {
     return this.http.get(environment.apiBaseUrl + '/user/open/userProfile');
   }
 
-  //activation() {
-   // return this.http.put(environment.apiBaseUrl + '/activate/:token', );
-  //}
+  
 
 
   //Helper Methods

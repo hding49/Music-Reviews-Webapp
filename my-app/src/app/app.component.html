@@ -6,10 +6,10 @@
         <button routerLink="/about-us"  routerLinkActive="active">About us</button>
         <button routerLink="/login"  routerLinkActive="active">Login & Signup</button>
   
-        <button routerLink="/reviewread" routerLinkActive="active">Review</button>
+        <!-- <button routerLink="/reviewread" routerLinkActive="active">Review</button> -->
         <button routerLink="/playlistread"  outerLinkActive="active">Playlist</button>
         <button routerLink="/songsearch"  outerLinkActive="active">Song</button>
-        <button routerLink="/getusers"  outerLinkActive="active">Manager</button>
+        <button *ngIf ="god" routerLink="/getusers"  outerLinkActive="active">Manager</button>
      </ul>
     </nav>
     

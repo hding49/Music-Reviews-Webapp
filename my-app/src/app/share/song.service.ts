@@ -17,7 +17,8 @@ export class SongService {
     Comments: '',
     Reserved: '',
     Track: '',
-    Genre: ''
+    Genre: '',
+    type: ''
   };
  // noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 

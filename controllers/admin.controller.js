@@ -14,6 +14,18 @@ module.exports.setType = async (req, res, next) =>{
 
 }
 
+module.exports.setStatus = async (req, res, next) =>{
+    var email = req.body.email;
+    var status = req.body.status;
+
+    await Product.findOneAndUpdate( {email : req.body.email}, {$set: {status : req.body.status} } ).then((updatedDoc)=>{
+        res.send(updatedDoc);   
+        //console.log(updatedDoc);      
+         
+  });
+
+}
+
 module.exports.setSong = async (req, res, next) =>{
     var title = req.body.Title;
     var Songtype = req.body.type;
