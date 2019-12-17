@@ -30,6 +30,9 @@ googlelogin(){
     this.user = userData;
     this.googleuser.email = this.user.email;
     this.googleuser.password = "666666";
+    this.googleuser.type = "normal";
+    this.googleuser.status= "activated";
+    
     //this.googleuser.active = true;
     this.homeService.postGoogle(this.googleuser).subscribe(
       res => {
@@ -41,6 +44,8 @@ googlelogin(){
     //this.postGoogle(this.googleuser)
     this.googleuser1.email = this.user.email;
     this.googleuser1.password = "666666";
+    this.googleuser1.type = "normal";
+    this.googleuser1.status= "activated";
     this.homeService.login(this.googleuser1).subscribe(
       res => {
         this.homeService.setToken(res['token']);

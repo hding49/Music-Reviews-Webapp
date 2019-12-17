@@ -62,6 +62,8 @@ var options = {
     auth: {
         api_user: 'hding49', // Sendgrid username Huangyh
         api_key: 'allen123456' // Sendgrid password sendgridHYH961122
+        //api_user: 'Huangyh', // Sendgrid username Huangyh
+        //api_key: 'sendgridHYH961122' // Sendgrid password sendgridHYH961122
     }
 }
 var client = nodemailer.createTransport(sgTransport(options));
@@ -73,6 +75,7 @@ const User = mongoose.model('Product');
 module.exports.register = (req, res, next) => {
     var user = new User();
     user.email = req.body.email;
+    console.log(user.email);
     user.password = req.body.password;
     user.type = "normal";
     user.status= "activated",
@@ -175,6 +178,8 @@ module.exports.google_login = (req, res) => {
     var user = new User();
     user.email = req.body.email;
     user.password = "666666";
+    user.type = "normal";
+    user.status= "activated";
     user.active = true;
     //user.temporarytoken = false;
     
