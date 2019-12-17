@@ -16,6 +16,9 @@
 
     <input type="submit" value="Sign In">
     <button (click) = 'googlelogin()'>Google Login</button>
+
+    
+  
     <div class = "col-md-12" style="text-align: -webkit-cent;" >
       <div class = "card" style="width:20rem;margin:20px 0 24px 0; text-align: -webkit-cent;" *ngIf = "user.photoUrl">
         
@@ -30,6 +33,19 @@
 
   <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
-    {{serverErrorMessages}}
+  {{serverErrorMessages}}
+  <br>
+
+  <form #ReSendForm="ngForm" *ngIf="serverErrorMessages=='Email is not actived.'" (ngSubmit)="resend(signInForm)">
+    <input type="submit" value="Resend Email">
+  </form>
    <!--  <button *ngIf="serverErrorMessages=='User not activated!'">sss</button>-->
   </div>
+
+  <div class="success" *ngIf="showSucessMessage">
+    Email Send successfully
+  </div>
+
+ 
+
+  <!-- Error message -->

@@ -68,6 +68,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 // End Sendgrid Configuration Settings	
 
 const User = mongoose.model('Product');
+//var user = new User();
 //module.exports.register = (req, res, next) =>
 module.exports.register = (req, res, next) => {
     var user = new User();
@@ -109,7 +110,7 @@ module.exports.register = (req, res, next) => {
 
     });
 }
-
+//auth
 module.exports.authenticate = (req, res, next) => {
     // call for passport authentication
     passport.authenticate('local', (err, user, info) => {       
@@ -120,6 +121,32 @@ module.exports.authenticate = (req, res, next) => {
         // unknown user or wrong password
         else return res.status(404).json(info);
     })(req, res);
+}
+//resend email
+module.exports.resend = (req, res, next) => {
+    var user = new User();
+    user.email = req.body.email;
+    user.password = req.body.password;
+    
+    //var user = res;
+   //send email
+    var email = {
+        from: 'Localhost Staff, staff@localhost.com',
+        to: user.email,
+        subject: 'Localhost Activation Link',
+        text: 'Hello, thank you for registering at localhost.com.',
+        html: 'Hello<strong> ' + user.email + '</strong>,<br><br>Thank you for registering at localhost.com. Please click on the link below to complete your activation:<br><br><a href="http://localhost:8080/products/user/open/activate/' + user.email + '">http://localhost:8080/activate</a>'
+    };
+    // Function to send e-mail to the user
+   
+
+    client.sendMail(email, function(err, info) {
+        //console.log('1');
+        if (err) console.log(err); // If error with sending e-mail, log to console/terminal
+    });
+    
+    //res.json({ success: true, message: 'Account registered! Please check your e-mail for activation link.' }); // Send success message back to controller/request
+    res.send(doc);
 }
 
 module.exports.userProfile = (req, res, next) =>{

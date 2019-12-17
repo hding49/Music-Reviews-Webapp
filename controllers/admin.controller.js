@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Song = require('../models/song.model');
 const Product = require('../models/product.model');
-
+//set user type
 module.exports.setType = async (req, res, next) =>{
     var email = req.body.email;
     var type = req.body.type;
@@ -13,7 +13,7 @@ module.exports.setType = async (req, res, next) =>{
   });
 
 }
-
+//set user status
 module.exports.setStatus = async (req, res, next) =>{
     var email = req.body.email;
     var status = req.body.status;
@@ -25,7 +25,7 @@ module.exports.setStatus = async (req, res, next) =>{
   });
 
 }
-
+//set song type
 module.exports.setSong = async (req, res, next) =>{
     var title = req.body.Title;
     var Songtype = req.body.type;
@@ -37,7 +37,7 @@ module.exports.setSong = async (req, res, next) =>{
   });
 
 }
-
+//get songs
 module.exports.getSongs = async (req, res, next) =>{
    
 try{
@@ -66,7 +66,7 @@ catch(err){
 
 
 }
-
+//get users
 module.exports.getUsers = async (req, res, next) =>{
    
     try{

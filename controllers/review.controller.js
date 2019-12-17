@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Review = require('../models/review.model');
 const Song = require('../models/song.model');
 var song = new Song();
-
+//create review
 exports.review_create = async function (req, res) {
     var review = new Review(
         {
@@ -41,7 +41,7 @@ exports.review_read = function (req, res) {
         res.send(review);
     })
 };
-
+//search review
 module.exports.review_search = (req, res, next) => {
     var word = req.params.id;
     word = word.replace(/\s/g, "");
@@ -73,7 +73,7 @@ exports.song_delete = function (req, res) {
         res.send("delete successfully!");
     })
 };
-
+//most recent review
 module.exports.review_mostrecent = (req, res, next) => {
     var word = req.params.songname;
   

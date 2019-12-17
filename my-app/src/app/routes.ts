@@ -18,6 +18,8 @@ import { PlaylistCreateComponent } from './playlist/playlist-create/playlist-cre
 import { PlaylistReadComponent } from './playlist/playlist-read/playlist-read.component';
 import { AdminSongComponent } from './home/admin/admin-song/admin-song.component';
 import { AdminUserComponent } from './home/admin/admin-user/admin-user.component';
+import { AllPlaylistComponent } from './playlist/all-playlist/all-playlist.component';
+import { EditPlaylistComponent } from './playlist/edit-playlist/edit-playlist.component';
 
 export const appRoutes: Routes = [
     {
@@ -36,7 +38,8 @@ export const appRoutes: Routes = [
         path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]
     },
     {
-        path: '', redirectTo: '/login', pathMatch: 'full'
+        //path: '', redirectTo: '/login', pathMatch: 'full'
+        path: '', redirectTo: '/about-us', pathMatch: 'full'
     },
     {
         path: 'songcreate', component: SongComponent,
@@ -75,6 +78,16 @@ export const appRoutes: Routes = [
     {
         path: 'playlistread', component: PlaylistComponent,
         children: [{ path: '', component: PlaylistReadComponent,canActivate:[AuthGuard] }]
+       
+    },
+    {
+        path: 'allplaylist', component: PlaylistComponent,
+        children: [{ path: '', component: AllPlaylistComponent,canActivate:[AuthGuard] }]
+       
+    },
+    {
+        path: 'editplaylist', component: EditPlaylistComponent,canActivate:[AuthGuard]
+        //children: [{ path: '', component: EditPlaylistComponent,canActivate:[AuthGuard] }]
        
     },
     {

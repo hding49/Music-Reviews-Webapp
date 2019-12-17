@@ -26,6 +26,7 @@ export class PlaylistReadComponent implements OnInit {
   songs = new Array;
   songs1 = new Array;
   RemovePlaylistObject = new Playlist;
+  playlistObject = new Playlist;
   constructor(private playlistService: PlaylistService, private router : Router, private appcomponent : AppComponent) { }
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class PlaylistReadComponent implements OnInit {
   onSubmit(form: NgForm) {
     //var word = "number2";
     var word = this.appcomponent.ownerPlaylist;
-    console.log(word);
+    //console.log(word);
     this.playlistService.getPlaylist(word).subscribe(
       res => {
         
@@ -81,6 +82,13 @@ getdetails(i,j) {
   //console.log("1");
 }
 
+edit(object2) {
+  this.appcomponent.SongEditedPlaylist = object2;
+  console.log(object2);
+  this.router.navigateByUrl('/editplaylist');
+  
+}
+
 
 
 removeSong(object1, ge) {
@@ -94,7 +102,7 @@ removeSong(object1, ge) {
    // };
    console.log(this.RemovePlaylistObject);
     this.playlistService.updatePlaylist(this.RemovePlaylistObject).subscribe (
-    //this.playlistService.updatePlaylist(remove).subscribe (
+   
       res => {
         //var word = "number2";
     var word1 = this.appcomponent.ownerPlaylist;
@@ -130,6 +138,33 @@ removeSong(object1, ge) {
    
    )
     //console.log(this.RemovePlaylistObject);
+  
+}
+
+setPlaylistType(address1, Playlisttype) {
+  this.playlistObject.playlistN =address1;
+
+  if (Playlisttype == "public")
+  {
+    this.playlistObject.type ="private";
+  }
+
+  else
+  {
+    this.playlistObject.type="public";
+  }
+
+  
+  this.playlistService.PlaylistType(this.playlistObject).subscribe(
+    res => {
+      
+      this.router.navigateByUrl('/playlistread');
+    },
+    err => {
+      this.serverErrorMessages = err.error.message;
+    }
+  );
+  
   
 }
 

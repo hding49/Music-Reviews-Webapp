@@ -1,1 +1,36 @@
-<p>all-playlist works!</p>
+<form #AllplaylistFormm="ngForm" (ngSubmit)="onSubmit(AllplaylistForm)">
+       
+
+    <input type="submit" value="Read all Playlist">
+  
+  
+    <div  *ngIf ="playlistIF">
+      <ul *ngFor ="let index of this.playlist; let i = index">
+        <!--<ul *ngFor ="let index of this.songs; let j = index">-->
+        <li >
+          <p >Playlist Name: {{playlist[i].playlistN}} </p>
+          <p >Description: {{playlist[i].description}}</p >
+         <p >Playlist Type: {{playlist[i].type}}</p >
+          <p >Owner Name: {{playlist[i].owner}} </p >
+            <ul *ngFor ="let index of this.playlist[i].songs; let j = index">
+              
+                 <p >Song Name: {{playlist[i].songs[j]}}</p >
+  
+            </ul>
+                         
+        </li>
+      
+    </ul>
+     </div>
+          
+    </form>
+        
+        <!-- Success message -->
+        <div class="success" *ngIf="showSucessMessage">
+          Remove successfully
+        </div>
+        
+        <!-- Error message -->
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>

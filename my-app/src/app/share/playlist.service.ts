@@ -14,6 +14,8 @@ export class PlaylistService {
     owner: '',
     songs: '',
     description: '',
+    type: '',
+   
     
   };
  // noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -24,12 +26,24 @@ export class PlaylistService {
     return this.http.post(environment.apiBaseUrl+'/playlist/secure/playlistcreate',playlist);
   }
 
+  PlaylistType(playlist: Playlist){
+    return this.http.post(environment.apiBaseUrl+'/playlist/secure/settype',playlist);
+  }
+
   updatePlaylist(playlist: Playlist){
     return this.http.post(environment.apiBaseUrl+'/playlist/secure/playlistupdate',playlist);
   }
 
+  editPlaylist(newName,oldName){
+    return this.http.post(environment.apiBaseUrl+'/playlist/secure/playlistedit',{old: oldName, new:newName});
+  }
+
   getPlaylist(word){
     return this.http.get(environment.apiBaseUrl+'/playlist/open/playlistread/' +word);
+  }
+
+  AllPlaylist(word){
+    return this.http.get(environment.apiBaseUrl+'/playlist/open/allplaylist/' +word);
   }
 
   showPlaylist(obj1)

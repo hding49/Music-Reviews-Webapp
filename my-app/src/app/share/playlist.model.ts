@@ -8,6 +8,8 @@ export class Playlist {
    // Reserved: String;
    // Track: String;
    description: String;
+   type: string;
+ 
 
     //AvRate: {type: String,}
     //NumRate: {type: String,}

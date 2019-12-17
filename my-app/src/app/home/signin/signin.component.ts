@@ -19,6 +19,8 @@ export class SigninComponent implements OnInit {
   googleuser1 = new Home;
   admin = new Home;
   //public googleuser : any = Home;
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
 
   constructor(private homeService: HomeService, private router : Router, private socialAuthService : AuthService, private appcomponent : AppComponent) { }
 
@@ -60,7 +62,7 @@ googlelogin(){
   
 
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  serverErrorMessages: string;
+  //serverErrorMessages: string;
   ngOnInit() {
     if(this.homeService.isLoggedIn())
     this.router.navigateByUrl('/userprofile');
@@ -69,6 +71,7 @@ googlelogin(){
   onSubmit(form : NgForm){
     this.homeService.login(form.value).subscribe(
       res => {
+        
         this.homeService.setToken(res['token']);
         this.router.navigateByUrl('/userprofile');
         
@@ -96,6 +99,39 @@ googlelogin(){
         this.serverErrorMessages = err.error.message;
       }
     );
+  }
+
+  resend(form: NgForm){
+    console.log("111");
+    this.homeService.resendEmail(form.value).subscribe(
+      res => {
+        this.showSucessMessage = true;
+        console.log("222");
+       
+        console.log(form.value);
+        this.resetForm(form);
+        
+      },
+      err => {
+        console.log("errr");
+        if (err.status === 422) {
+          this.serverErrorMessages = err.error.join('<br/>');
+        }
+        else
+          this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+      }
+    );
+  }
+
+  resetForm(form: NgForm) {
+    this.homeService.selectedUser = {
+      email: '',
+      password: '',
+      type: '',
+      status: '',
+    };
+    form.resetForm();
+    //this.serverErrorMessages = 'Already sent email.';
   }
 
 }

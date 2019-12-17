@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { NgForm } from "@angular/forms";
 import { environment } from '../../environments/environment';
 //import { Home } from '../../../../models/product.model';
 import { Home } from './home.model';
@@ -21,6 +21,10 @@ export class HomeService {
 
   postUser(user: Home){
     return this.http.post(environment.apiBaseUrl+'/user/secure/register',user,this.noAuthHeader);
+  }
+
+  resendEmail(form: NgForm){
+    return this.http.post(environment.apiBaseUrl+'/user/secure/resend' ,form,this.noAuthHeader);
   }
 
   AdminGetUsers(){

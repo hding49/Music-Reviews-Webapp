@@ -5,23 +5,27 @@
 
 
   <div  *ngIf ="playlistIF">
+    
     <ul *ngFor ="let index of this.playlist; let i = index">
       <!--<ul *ngFor ="let index of this.songs; let j = index">-->
+        
       <li >
         <p >Playlist Name: {{playlist[i].playlistN}} </p>
         <p >Description: {{playlist[i].description}}</p >
-
+          <p >Owner Name: {{playlist[i].owner}} </p >
+            <p >Playlist Type: {{playlist[i].type}}</p >
           <ul *ngFor ="let index of this.playlist[i].songs; let j = index">
-            <p >Owner Name: {{playlist[i].owner}} </p >
+            
                <p >Song Name: {{playlist[i].songs[j]}}</p >
                 
-
+               
                <button (click) = "removeSong(playlist[i], playlist[i].songs[j])">remove</button> 
-          
+  
           </ul>
                        
       </li>
-    
+      <button (click) = "edit(playlist[i].playlistN)">edit playlist</button> 
+      <button (click) = "setPlaylistType(playlist[i].playlistN, playlist[i].type)">change playlist type</button>
   </ul>
    </div>
         

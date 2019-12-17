@@ -7,32 +7,31 @@ import { AppComponent } from '../../app.component';
 import { Playlist } from '../../share/playlist.model';
 
 @Component({
-  selector: 'app-playlist-create',
-  templateUrl: './playlist-create.component.html',
-  styleUrls: ['./playlist-create.component.scss'],
+  selector: 'app-edit-playlist',
+  templateUrl: './edit-playlist.component.html',
+  styleUrls: ['./edit-playlist.component.scss'],
   providers: [PlaylistService]
 })
-export class PlaylistCreateComponent implements OnInit {
+export class EditPlaylistComponent implements OnInit {
   playlistObject = new Playlist;
-
   constructor(private playlistService: PlaylistService, private router : Router, public appcomponent : AppComponent) { }
 
   ngOnInit() {
   }
-  
+
   serverErrorMessages: string;
   showSucessMessage: boolean;
   onSubmit(form : NgForm){
-    this.playlistObject.songs = this.appcomponent.SongAddedPlaylist;
+    //this.playlistObject.old = this.appcomponent.SongEditedPlaylist;
     //console.log(this.appcomponent.SongAddedPlaylist);
     //console.log(this.playlistObject.songs);
     this.playlistObject.playlistN=form.value.playlistN;
-    this.playlistObject.owner=this.appcomponent.ownerPlaylist;
+    //this.playlistObject.owner=this.appcomponent.ownerPlaylist;
     this.playlistObject.description=form.value.description;
     //this.playlistObject.
     console.log(this.playlistObject.owner);
     console.log(this.playlistObject.description);
-    this.playlistService.postPlaylist(this.playlistObject).subscribe(
+    this.playlistService.editPlaylist(form.value.playlistN, this.appcomponent.SongEditedPlaylist).subscribe(
       res => {
         //this.showSucessMessage = true;
         //this.songService.setToken(res['token']);
@@ -54,6 +53,7 @@ export class PlaylistCreateComponent implements OnInit {
     songs: '',
     description: '',
     type: '',
+   
     
     };
     form.resetForm();

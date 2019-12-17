@@ -28,6 +28,7 @@ router.delete('/user/open/:id/delete', product_controller.product_delete);
 const jwtHelper = require('../config/jwtHelper');
 
 router.post('/user/secure/register', product_controller.register);
+router.post('/user/secure/resend', product_controller.resend);
 router.post('/user/secure/authenticate', product_controller.authenticate);
 router.get('/user/open/userProfile',jwtHelper.verifyJwtToken, product_controller.userProfile);
 router.get('/user/open/activate/:token', product_controller.activateUser);
@@ -49,7 +50,10 @@ router.get('/review/open/mostrecent/:songname', review_controller.review_mostrec
 //playlist part
 router.post('/playlist/secure/playlistcreate', playlist_controller.playlist_create);
 router.get('/playlist/open/playlistread/:id', playlist_controller.playlist_search);
+router.get('/playlist/open/allplaylist/:id', playlist_controller.playlist_all);
 router.post('/playlist/secure/playlistupdate', playlist_controller.playlist_update);
+router.post('/playlist/secure/settype', playlist_controller.setType);
+router.post('/playlist/secure/playlistedit', playlist_controller.EditPlaylist);
 //router.put('/:playlistN/playlistupdate', playlist_controller.playlist_update);
 
 //admin

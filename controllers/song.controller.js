@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Song = require('../models/song.model');
-
+//create songs
 exports.song_create = function (req, res) {
     var song = new Song();
         
@@ -30,7 +30,7 @@ exports.song_create = function (req, res) {
                }
            });
 };
-
+//read songs
 exports.song_read = function (req, res) {
     Song.find(function (err, song) {
         if (err) return next(err);
@@ -54,7 +54,7 @@ exports.song_delete = function (req, res) {
 
 
 
-
+//search songs
 module.exports.song_search = (req, res, next) => {
     var word = req.params.id;
     word = word.replace(/\s/g, "");
@@ -81,7 +81,7 @@ module.exports.song_search = (req, res, next) => {
     })
 }
 
-
+//top ten songs
 module.exports.song_top10 = (req, res, next) => {
     var array = new Array();
     //var song = new Song();

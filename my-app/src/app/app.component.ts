@@ -13,4 +13,5 @@ export class AppComponent {
   public logged : boolean;
   public SongAddedReview : String;
   public god: boolean;
+  public SongEditedPlaylist : String;
 }
