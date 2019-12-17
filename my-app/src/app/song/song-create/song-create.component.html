@@ -2,8 +2,16 @@
 
 <form #songCreateForm="ngForm" (ngSubmit)="songCreateForm.valid && onSubmit(songCreateForm)">
   
-<input id = "songname" type="text" #Title="ngModel" [(ngModel)]="songService.selectedSong.Title" name="Title" placeholder="Title">
-<input type="text" #Artist="ngModel" [(ngModel)]="songService.selectedSong.Artist" name="Artist" placeholder="Artist">
+<input id = "songname" type="text" #Title="ngModel" [(ngModel)]="songService.selectedSong.Title" required [ngClass]="{'invalid-textbox' :songCreateForm.submitted && !Title.valid }" name="Title" placeholder="Title">
+<div *ngIf="songCreateForm.submitted && Title.errors">
+  <label *ngIf="Title.errors.required" class="validation-message">This field is required.</label>
+</div>
+
+<input type="text" #Artist="ngModel" [(ngModel)]="songService.selectedSong.Artist" required [ngClass]="{'invalid-textbox' :songCreateForm.submitted && !Artist.valid }" name="Artist" placeholder="Artist">
+<div *ngIf="songCreateForm.submitted && Artist.errors">
+  <label *ngIf="Artist.errors.required" class="validation-message">This field is required.</label>
+</div>
+
 <input type="text" #Album="ngModel" [(ngModel)]="songService.selectedSong.Album" name="Album" placeholder="Album">
 <input type="text" #Year="ngModel" [(ngModel)]="songService.selectedSong.Year" name="Year" placeholder="Year">
 <input type="text" #Comments="ngModel" [(ngModel)]="songService.selectedSong.Comments" name="Comments" placeholder="Comments">

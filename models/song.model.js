@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 
 var SongSchema = new Schema({
-    Title: {type: String,  index: true, unique: true, max: 100},
-    Artist: {type: String,  max: 100},
+    Title: {type: String,  required: 'Title can\'t be empty', index: true, unique: true, max: 100},
+    Artist: {type: String,  required: 'Artist can\'t be empty', max: 100},
     Album: {type: String,  max: 100},
     Year: {type: String,  max: 100},
     Comments: {type: String,  max: 100},
