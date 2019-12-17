@@ -1,0 +1,215 @@
+commit 7557bb9c66e3eb86e378db3f535693a0929763b4
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Dec 16 23:22:55 2019 -0500
+
+    project done!
+
+commit 09ee845f212d07549c37ffaf9d60044ffe0b790a
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Dec 16 17:42:53 2019 -0500
+
+    update playlist function
+
+commit af5b3027f5f678d74b2ff1e03e2b5c67a10ae46c
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 23:50:50 2019 -0500
+
+    update url
+
+commit 66b7b7a2c449c60161723429ebb4e3dd31be81fc
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 21:45:34 2019 -0500
+
+    admin account
+
+commit 5650a912afd02aa8f30e986b8ebb4f79d3672771
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 20:31:40 2019 -0500
+
+    updation
+
+commit 86d7a524063688c118b9f5d7d80c705a9c7d7c25
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 14:48:17 2019 -0500
+
+    hide add song button and achieve playlist function
+
+commit 67137455053a7cd87d48f2f3cc06ce2006e5a9ff
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 03:20:14 2019 -0500
+
+    begin rating
+
+commit f14f91ae7e404b7ed211257746e3396f4cbc3bc5
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 15 02:58:07 2019 -0500
+
+    update playlist function
+
+commit 66cf6069254df1c591820b8bb06d3b6526de2865
+Author: hding49 <hding49@uwo.ca>
+Date:   Sat Dec 14 23:21:40 2019 -0500
+
+    achieve playlist basic function
+
+commit c9e868ad9f0e9f3747936b916ecbdcc9273d1312
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 13 22:29:42 2019 -0500
+
+    updation
+
+commit 30fce439c00b36a7867cae73cf2f6ffa95eee00b
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 13 14:25:01 2019 -0500
+
+    achieve playlist read
+
+commit 4d5d083aa754539a37d2219efb3cbf2d87447036
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 13 13:53:21 2019 -0500
+
+    achieve playlist create
+
+commit 36d754b8f47514157063cfc9e9216f28332a089c
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 13 13:08:02 2019 -0500
+
+    achieve review and basic playlist
+
+commit 7cab412377db68baa8d887a1f314f25cb3d257ed
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Dec 9 21:53:22 2019 -0500
+
+    update all
+
+commit be030d9e1e93400e08a48d7470fb167efaa8b91f
+Author: hding49 <hding49@uwo.ca>
+Date:   Sun Dec 8 14:16:02 2019 -0500
+
+    achieve basic front end and search & sort function
+
+commit a7ba34a2312e1c083a5a60c9d1c82d63d3ea4b4c
+Author: hding49 <hding49@uwo.ca>
+Date:   Sat Dec 7 18:01:09 2019 -0500
+
+    finish third party login
+
+commit 8de9fd44a3ffb44c9fae82c673c07abed1c3575b
+Author: hding49 <hding49@uwo.ca>
+Date:   Sat Dec 7 17:44:13 2019 -0500
+
+    basic third party is achieved
+
+commit 35666d4af441b319576b7a0b55389095ed3be8d5
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 6 18:08:07 2019 -0500
+
+    update html and css
+
+commit d4e31c0bcb178e80dcb1aaf84cd8a840094838c6
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 6 17:45:58 2019 -0500
+
+    Update passportConfig.js
+
+commit 4bcabf27c6f1707d6ba0a466ad3c423bb506c3eb
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 6 16:48:54 2019 -0500
+
+    finish email verification
+
+commit 1adc20f34b29355810949a72c713f4dde47fb549
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Dec 6 16:17:08 2019 -0500
+
+    updation
+
+commit ab2624cfbb4e2b763d2381f37cc70d37e87776f5
+Author: hding49 <hding49@uwo.ca>
+Date:   Thu Dec 5 15:39:15 2019 -0500
+
+    update css
+
+commit 7b618ea2321b4cf464cf967b1abbcab69c771b80
+Author: hding49 <hding49@uwo.ca>
+Date:   Thu Dec 5 15:33:08 2019 -0500
+
+    Update styles.scss
+
+commit dcc21e7baa1b184cf14625e7f29194fd09ea8f54
+Author: hding49 <hding49@uwo.ca>
+Date:   Thu Dec 5 15:13:40 2019 -0500
+
+    achieve signin and signup function
+
+commit 0f57dfb0556d3007658c698435211d0f3dfb3e52
+Author: hding49 <hding49@uwo.ca>
+Date:   Wed Dec 4 19:11:10 2019 -0500
+
+    update authenticate
+
+commit 5c62187861df2396c590d6ae6fbc35f0cae59cb6
+Author: hding49 <hding49@uwo.ca>
+Date:   Wed Dec 4 18:31:17 2019 -0500
+
+    update angular
+
+commit fd0e619595d28359a86001a5c0810c77b9237e2e
+Author: hding49 <hding49@uwo.ca>
+Date:   Wed Dec 4 16:37:15 2019 -0500
+
+    uodate angular part
+
+commit 2e2d5e0c454c3f0ed0e987f7199209d611a5bd45
+Author: hding49 <hding49@uwo.ca>
+Date:   Tue Dec 3 19:47:49 2019 -0500
+
+    basic register function
+
+commit 5d4fe15cd5eef829d07d30b660cfe347c70c0dba
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Dec 2 20:46:51 2019 -0500
+
+    update server part
+
+commit 7f71914e337860be52d5b97d41c8b3113ef548b8
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Dec 2 20:13:34 2019 -0500
+
+    update angular
+
+commit 0defbc5262008679a7b06ae926262a44e8a4b4e5
+Author: hding49 <hding49@uwo.ca>
+Date:   Thu Nov 28 15:22:16 2019 -0500
+
+    build angular achitecture
+
+commit 6dc25cf35c54c0323e584888dab45ffc9027c4f8
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Nov 25 01:10:07 2019 -0500
+
+    connect with database
+
+commit 2dd1e728e13a7be53fb4e213201d9f31ed636e19
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Nov 25 00:34:14 2019 -0500
+
+    update crud
+
+commit 1432fac775e850a88c656d2bd939effb2b3cf3b6
+Author: hding49 <hding49@uwo.ca>
+Date:   Mon Nov 25 00:26:31 2019 -0500
+
+    basic CRUD configuration
+
+commit ab7640334008383a91827e2ae0c5c0fa12866e70
+Author: hding49 <hding49@uwo.ca>
+Date:   Fri Nov 15 17:11:28 2019 -0500
+
+    update .gitignore
+
+commit 850d5176c616751c51c9c5dfcd70a3c6f37dcfed
+Author: hding49 <55361977+hding49@users.noreply.github.com>
+Date:   Fri Nov 15 17:00:07 2019 -0500
+
+    Initial commit
