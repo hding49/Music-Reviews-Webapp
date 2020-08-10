@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hding49/ece9065-hding49-project.git"
+    "url": "git+https://github.com/hding49/Music-Reviews-Webapp.git"
   },
-  "author": "",
+  "author": "Allen Ding",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hding49/ece9065-hding49-project/issues"
   },
-  "homepage": "https://github.com/hding49/ece9065-hding49-project#readme",
+  "homepage": "https://github.com/hding49/Music-Reviews-Webapp.git#readme",
   "dependencies": {
     "angular5-social-login": "^1.0.9",
     "angularx-social-login": "^2.2.1",
