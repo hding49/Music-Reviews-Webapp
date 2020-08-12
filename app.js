@@ -74,4 +74,4 @@ app.use((err, req, res, next) => {
 // console.log(buddha);
 
 //start server
-app.listen(process.env.PORT, () => console.log(`Server has started!`));
+app.listen(process.env.PORT, '0.0.0.0', () => console.log(`Server has started!`));
