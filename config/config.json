@@ -4,6 +4,12 @@
         "MONGODB_URI": "mongodb+srv://haoran:allen123@cluster0.gw2wj.mongodb.net/music?retryWrites=true&w=majority",
         "JWT_SECRET": "SECRET#123",
         "JWT_EXP": "10m"
+    },
+    "production": {
+        "PORT": 0,
+        "MONGODB_URI": "mongodb+srv://haoran:allen123@cluster0.gw2wj.mongodb.net/music?retryWrites=true&w=majority",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
     }
     
 }
