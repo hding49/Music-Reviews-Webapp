@@ -1,4 +1,4 @@
-# Music-Reviews-Webapp
+# MEAN-Music-Reviews-Webapp
 
 For Testing
 
