@@ -1,22 +1,23 @@
 <header>
-<div>
-    <a href="#"> Western Music</a>
-    <nav>
-      <ul>
-        <button routerLink="/about-us"  routerLinkActive="active">About us</button>
-        <button routerLink="/login"  routerLinkActive="active">Login & Signup</button>
-  
-        <!-- <button routerLink="/reviewread" routerLinkActive="active">Review</button> -->
-        <button routerLink="/playlistread"  outerLinkActive="active">Playlist</button>
-        <button routerLink="/songsearch"  outerLinkActive="active">Song</button>
-        <button *ngIf ="god" routerLink="/getusers"  outerLinkActive="active">Manager</button>
-     </ul>
-    </nav>
+  <div>
+      <a href="#"> Western Music</a>
+      <nav>
+        <ul>
+          <button routerLink="/about-us"  routerLinkActive="active">About us</button>
+          <button routerLink="/login"  routerLinkActive="active">Login & Signup</button>
     
-</div>
-</header>
-
-
-<div>
-    <router-outlet></router-outlet>
-</div>
+          <!-- <button routerLink="/reviewread" routerLinkActive="active">Review</button> -->
+          <button routerLink="/playlistread"  outerLinkActive="active">Playlist</button>
+          <button routerLink="/songsearch"  outerLinkActive="active">Song</button>
+          <button *ngIf ="god" routerLink="/getusers"  outerLinkActive="active">Manager</button>
+       </ul>
+      </nav>
+      
+  </div>
+  </header>
+  
+  
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+  
