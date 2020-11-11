@@ -16,11 +16,10 @@ app.use('/', express.static('./'));
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-let dev_db_url = 'mongodb+srv://allen:allen666666@cluster0-txdt3.mongodb.net/test?retryWrites=true&w=majority';
-// let dev_db_url = 'mongodb+srv://haoran:allen123@cluster0.gw2wj.mongodb.net/music?retryWrites=true&w=majority';
+let dev_db_url = 'mongodb+srv://allen:allen666666@cluster0.txdt3.mongodb.net/test?retryWrites=true&w=majority';
 
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect('mongodb+srv://allen:allen666666@cluster0-txdt3.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -50,28 +49,28 @@ app.use((err, req, res, next) => {
 //app.listen(port, () => {
   //  console.log('Server is up and running on port numner ' + port);
 //});
-// var buddha = " \n\
-//                             _ooOoo_ \n\
-//                            o8888888o \n\
-//                            88\" . \"88 \n\
-//                            (| -_- |) \n\
-//                             O\\ = /O \n\
-//                         ____/`---'\\____ \n\
-//                       .   ' \\\\| |// `. \n\
-//                        / \\\\||| : |||// \\ \n\
-//                      / _||||| -:- |||||- \\ \n\
-//                        | | \\\\\\ - /// | | \n\
-//                      | \\_| ''\\---/'' | | \n\
-//                       \\ .-\\__ `-` ___/-. / \n\
-//                    ___`. .' /--.--\\ `. . __ \n\
-//                 .\"\" '< `.___\\_<|>_/___.' >'\"\". \n\
-//                | | : `- \\`.;`\\ _ /`;.`/ - ` : | | \n\
-//                  \\ \\ `-. \\_ __\\ /__ _/ .-` / / \n\
-//          ======`-.____`-.___\\_____/___.-`____.-'====== \n\
-//                             `=---=' \n\
-//                             'No BUGS!' \n\
-// ";
-// console.log(buddha);
+var buddha = " \n\
+                            _ooOoo_ \n\
+                           o8888888o \n\
+                           88\" . \"88 \n\
+                           (| -_- |) \n\
+                            O\\ = /O \n\
+                        ____/`---'\\____ \n\
+                      .   ' \\\\| |// `. \n\
+                       / \\\\||| : |||// \\ \n\
+                     / _||||| -:- |||||- \\ \n\
+                       | | \\\\\\ - /// | | \n\
+                     | \\_| ''\\---/'' | | \n\
+                      \\ .-\\__ `-` ___/-. / \n\
+                   ___`. .' /--.--\\ `. . __ \n\
+                .\"\" '< `.___\\_<|>_/___.' >'\"\". \n\
+               | | : `- \\`.;`\\ _ /`;.`/ - ` : | | \n\
+                 \\ \\ `-. \\_ __\\ /__ _/ .-` / / \n\
+         ======`-.____`-.___\\_____/___.-`____.-'====== \n\
+                            `=---=' \n\
+                            'No BUGS!' \n\
+";
+console.log(buddha);
 
 //start server
-app.listen( 8080, () => console.log(`Server has started!`));
+app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));

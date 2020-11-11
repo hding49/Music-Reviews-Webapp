@@ -4,35 +4,34 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hding49/Music-Reviews-Webapp.git"
+    "url": "git+https://github.com/hding49/ece9065-hding49-project.git"
   },
-  "author": "Allen Ding",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hding49/ece9065-hding49-project/issues"
   },
-  "homepage": "https://github.com/hding49/Music-Reviews-Webapp.git#readme",
+  "homepage": "https://github.com/hding49/ece9065-hding49-project#readme",
   "dependencies": {
     "angular5-social-login": "^1.0.9",
-    "angularx-social-login": "^2.3.1",
+    "angularx-social-login": "^2.2.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.19",
-    "mongoose": "^5.9.28",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.12",
     "mongoose-unique-validator": "^2.0.3",
-    "nodemailer": "^6.4.11",
+    "nodemailer": "^6.4.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "passport": "^0.4.1",
+    "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "rxjs": "^6.6.2",
-    "rxjs-compat": "^6.6.2"
+    "rxjs": "^6.5.3",
+    "rxjs-compat": "^6.5.3"
   }
 }

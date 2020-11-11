@@ -55,6 +55,7 @@ exports.song_delete = function (req, res) {
 
 
 //search songs
+//fuzzy search
 module.exports.song_search = (req, res, next) => {
     var word = req.params.id;
     word = word.replace(/\s/g, "");
